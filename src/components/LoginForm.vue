@@ -9,7 +9,7 @@
         <button></button>
       </div>
       <div class="form">
-        <h2>Log in</h2>
+        <h2>Log in in</h2>
         <form>
           <input>
           <input>
