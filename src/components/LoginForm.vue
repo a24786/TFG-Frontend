@@ -2,36 +2,51 @@
   <div class="loginForm">
     <div class="block1">
       <img src="../assets/logo_large.png">
-      <h1>GET STARTED</h1>
+      <h1>Empezar Experiencia</h1>
     </div>
     <div class="block2">
       <div class="buttons">
-        <button class="button1">Log in</button>
-        <button class="button2">Register</button>
+        <button class="button1">Inicia sesión</button>
+        <button class="button2">Registrate</button>
       </div>
       <div class="form">
-        <h2>Log in</h2>
-        <form class="login_form">
-          <input type="mail" name="email" placeholder="E-Mail Address">
-          <input type="password" name="password" placeholder="Password">
-          <button class="button3">Log in</button>
-        </form>
+        <h2>¡Hola de nuevo!</h2>
+        <div class="login_form">
+          <input type="mail" name="email" placeholder="Email" v-model="email">
+          <input type="password" name="password" placeholder="Contraseña" v-model="password">
+          <button class="button3" @click="submit()">Iniciar Sesión</button>
+        </div>
       </div>
       <div class="privacy_register">
-        <p>Don´t have an account yet? <a>Register</a></p>
+        <p>¿Aún no tienes cuenta propia? <a  router-link :to="{ name: 'Register'}">Crea una cuenta</a></p>
       </div>
     </div>
   </div>
 </template>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&family=Roboto:wght@300;400;500&display=swap');
 </style>
 <script>
 export default {
   name: 'loginForm',
   props: {
     msg: String
-  }
+  },
+  data() {
+    return{
+      email:'',
+      password:'',
+      user: {},
+    }
+  },
+  methods : {
+    submit(){
+      this.user = {email: this.email, password: this.password} 
+      this.$store.dispatch('loginUser', this.user)   
+      }
+    },
+    
 }
 </script>
 <style> 
@@ -66,7 +81,9 @@ body {
 }
 
 .block1 h1{
-  font-family: Roboto;
+  font-family: Pattaya;
+  font-size: xxx-large;
+  margin-top: 5px;
 }
 
 .buttons {
@@ -83,8 +100,8 @@ button.button1 {
   background: rgb(254 167 1);
   cursor: pointer;
   height: 40px;
-  width: 100px;
-  border-width: 1px;
+  width: 115px;
+  border: solid black 2px;
   font-family: Roboto;
 }
 
@@ -97,7 +114,7 @@ button.button2 {
   cursor: pointer;
   height: 40px;
   width: 100px;
-  border-width: 1px;
+  border: solid black 2px;
   margin-left: 10px;
   font-family: Roboto;
 }
