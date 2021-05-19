@@ -2,31 +2,187 @@
   <div class="loginForm">
     <div class="block1">
       <img src="../assets/logo_large.png">
+      <h1>Empezar Experiencia</h1>
     </div>
     <div class="block2">
       <div class="buttons">
-        <button></button>
-        <button></button>
+        <button class="button1">Inicia sesión</button>
+        <button class="button2">Registrate</button>
       </div>
       <div class="form">
-        <h2>Log in</h2>
-        <form>
-          <input>
-          <input>
-          <button>Log in</button>
-        </form>
+        <h2>¡Hola de nuevo!</h2>
+        <div class="login_form">
+          <input type="mail" name="email" placeholder="Email" v-model="email">
+          <input type="password" name="password" placeholder="Contraseña" v-model="password">
+          <button class="button3" @click="submit()">Iniciar Sesión</button>
+        </div>
       </div>
       <div class="privacy_register">
-        <p>No tiene aún una cuenta?<a>Registrate</a></p>
+        <p>¿Aún no tienes cuenta propia? <a  router-link :to="{ name: 'Register'}">Crea una cuenta</a></p>
       </div>
     </div>
   </div>
 </template>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&family=Roboto:wght@300;400;500&display=swap');
+</style>
 <script>
 export default {
   name: 'loginForm',
   props: {
     msg: String
-  }
+  },
+  data() {
+    return{
+      email:'',
+      password:'',
+      user: {},
+    }
+  },
+  methods : {
+    submit(){
+      this.user = {email: this.email, password: this.password} 
+      this.$store.dispatch('loginUser', this.user)   
+      }
+    },
+    
 }
 </script>
+<style> 
+.loginForm {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0px;
+}
+
+.block1 {
+  width: 50%;
+  height: 100%;
+  background-color: #FEA701;
+  text-align: center;
+  color: black;
+}
+
+.block2 {
+  width: 50%;
+  font-family: Roboto;
+}
+
+.block1 img {
+  width: 85%;
+  padding-top: 15%;
+}
+
+.block1 h1{
+  font-family: Pattaya;
+  font-size: xxx-large;
+  margin-top: 5px;
+}
+
+.buttons {
+  text-align: right;
+  padding-right: 9%;
+  padding-top: 5%;
+}
+
+button.button1 {
+  border-radius: 5px;
+  font-size: inherit;
+  font-style: normal;
+  font-weight: 600;
+  background: rgb(254 167 1);
+  cursor: pointer;
+  height: 40px;
+  width: 115px;
+  border: solid black 2px;
+  font-family: Roboto;
+}
+
+button.button2 {
+  border-radius: 5px;
+  font-size: inherit;
+  font-style: normal;
+  font-weight: 600;
+  background: white;
+  cursor: pointer;
+  height: 40px;
+  width: 100px;
+  border: solid black 2px;
+  margin-left: 10px;
+  font-family: Roboto;
+}
+
+.form h2 {
+  font-size: xx-large;
+  text-align: left;
+}
+
+.form {
+  padding-left: 9%;
+  padding-top: 5%;
+}
+
+.login_form {
+  display: grid;
+  width: 90%;
+  margin-top: 70px;
+}
+
+input {
+  margin-top: 20px;
+  border-radius: 10px;
+  font-size: inherit;
+  font-style: normal;
+  font-weight: 500;
+  cursor: auto;
+  height: 45px;
+  background-color: white;
+  border-color: black;
+  padding-left: 20px;
+  font-family: Roboto;
+}
+
+button.button3 {
+  margin-top: 50px;
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: 600;
+  cursor: pointer;
+  height: 60px;
+  border-color: black;
+  padding-left: 20px;
+  background-color: black;
+  font-size: x-large;
+  color: white;
+  font-family: Roboto;
+}
+
+.privacy_register {
+  text-align: center;
+}
+
+p {
+  color: grey;
+}
+
+a {
+  color: deepskyblue;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+} 
+
+input:focus {
+  outline: none;
+}
+
+</style>
