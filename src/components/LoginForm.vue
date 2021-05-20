@@ -12,7 +12,7 @@
       <div class="form">
         <h2>¡Hola de nuevo!</h2>
         <div class="login_form">
-          <input type="mail" name="email" placeholder="Email" v-model="email">
+          <input type="mail" name="email" placeholder="E-mail" v-model="email">
           <input type="password" name="password" placeholder="Contraseña" v-model="password">
           <button class="button3" @click="submit()">Iniciar Sesión</button>
         </div>
@@ -101,7 +101,7 @@ button.button1 {
   cursor: pointer;
   height: 40px;
   width: 115px;
-  border: solid black 2px;
+  border: solid rgb(254 167 1) 2px;
   font-family: Roboto;
 }
 
@@ -122,6 +122,7 @@ button.button2 {
 .form h2 {
   font-size: xx-large;
   text-align: left;
+  color: black;
 }
 
 .form {
@@ -162,6 +163,7 @@ button.button3 {
   font-size: x-large;
   color: white;
   font-family: Roboto;
+  transition-duration: 0.5s;
 }
 
 .privacy_register {
@@ -183,6 +185,24 @@ a:hover {
 
 input:focus {
   outline: none;
+}
+
+button.button2:hover {
+    background-color: black;
+    color: rgb(254 167 1);
+}
+
+button.button1:hover {
+    background-color: black;
+    color: rgb(254 167 1);
+    border: solid black 2px;
+}
+
+button.button3:hover {
+    background-color: rgb(254 167 1);
+    color: black;
+    border:solid rgb(254 167 1) 1px;
+    transition-duration: 0.5s;
 }
 
 </style>
