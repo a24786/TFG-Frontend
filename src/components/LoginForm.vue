@@ -7,7 +7,9 @@
     <div class="block2">
       <div class="buttons">
         <button class="button1">Inicia sesión</button>
-        <button class="button2">Registrate</button>
+        <router-link to="/register">
+        <button class="button2">Regístrate</button>
+        </router-link>
       </div>
       <div class="form">
         <h2>¡Hola de nuevo!</h2>
@@ -18,7 +20,7 @@
         </div>
       </div>
       <div class="privacy_register">
-        <p>¿Aún no tienes cuenta propia? <a  router-link :to="{ name: 'Register'}">Crea una cuenta</a></p>
+        <p>¿Aún no tienes cuenta propia? <router-link to="/register"><a class="create_account">Crea una cuenta</a></router-link></p>
       </div>
     </div>
   </div>
@@ -174,11 +176,16 @@ p {
   color: grey;
 }
 
-a {
+.privacy_register a {
   color: deepskyblue;
+  text-decoration: none;
 }
 
-a:hover {
+a.create_account:hover {
+  text-decoration: underline;
+} 
+
+.create_account:hover {
   cursor: pointer;
   text-decoration: underline;
 } 
