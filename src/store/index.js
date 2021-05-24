@@ -31,10 +31,30 @@ export default new Vuex.Store({
                     document.cookie =
                         data.name + "=" + data.value + ";" + expires + ";path=/";
                 })
+        },
+        registerUser(context, user) {
+            context.state.user = this.user
+            return fetch(BASE_URL + `api/users/sign-up`, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(user),
+                }).then(response => response.json())
+                .then(data => {
+                    let d = new Date();
+                    d.setTime(d.getTime() + 1 * 24 * 60 * 60 * 1000);
+                    let expires = "expires=" + d.toUTCString();
+                    document.cookie =
+                        data.name + "=" + data.value + ";" + expires + ";path=/";
+                })
         }
     },
     mutations: {
-
+        // fetchRegisterUsers(state, data){
+        //     state.users = data
+        //   },
     },
     modules: {},
 
