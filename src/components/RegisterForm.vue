@@ -1,26 +1,31 @@
 <template>
-  <div class="loginForm">
+  <div class="registerForm">
     <div class="block1">
       <img src="../assets/logo_large.png">
       <h1>Empezar Experiencia</h1>
     </div>
     <div class="block2">
       <div class="buttons">
-        <button class="button1">Inicia sesión</button>
-        <router-link to="/register">
-        <button class="button2">Regístrate</button>
+        <router-link to="/login">
+        <button class="button4">Inicia sesión</button>
         </router-link>
+        <button class="button5">Regístrate</button>
       </div>
       <div class="form">
-        <h2>¡Hola de nuevo!</h2>
-        <div class="login_form">
-          <input type="mail" name="email" placeholder="E-mail" v-model="email">
+        <h2>Registro de usuario</h2>
+        <div class="register_form">
+          <div class="fullname">
+            <input type="text" name="name" placeholder="Nombre" class="name" v-model="name">
+            <input type="text" name="surname" placeholder="Apellidos" class="surname" v-model="surname">
+          </div>
           <input type="password" name="password" placeholder="Contraseña" v-model="password">
-          <button class="button3" @click="submit()">Iniciar Sesión</button>
+          <input type="mail" name="email" placeholder="E-mail" v-model="email">
+          <button class="button3" @click="submit()">Registrarse</button>
         </div>
       </div>
       <div class="privacy_register">
-        <p>¿Aún no tienes cuenta propia? <router-link to="/register"><a class="create_account">Crea una cuenta</a></router-link></p>
+        <p>Clicando en "Reqistrarse" acepta nuestras <a class="tos_pol">TOS</a> y <a class="tos_pol">Politicas de Privacidad</a></p>
+        <p>¿Ya tienes cuenta propia? <router-link to="/login"><a>Inicia Sesión</a></router-link></p>
       </div>
     </div>
   </div>
@@ -31,28 +36,30 @@
 </style>
 <script>
 export default {
-  name: 'loginForm',
+  name: 'registerForm',
   props: {
     msg: String
   },
   data() {
     return{
-      email:'',
+      name:'',
+      surname:'',
       password:'',
+      email:'',
       user: {},
     }
   },
   methods : {
     submit(){
-      this.user = {email: this.email, password: this.password} 
-      this.$store.dispatch('loginUser', this.user)   
+      this.user = {name: this.name, surname: this.surname, password: this.password, email: this.email} 
+      this.$store.dispatch('registerUser', this.user)   
       }
     },
     
 }
 </script>
 <style> 
-.loginForm {
+.registerForm {
   display: flex;
   width: 100%;
   height: 100vh;
@@ -94,7 +101,7 @@ body {
   padding-top: 5%;
 }
 
-button.button1 {
+button.button5 {
   border-radius: 5px;
   font-size: inherit;
   font-style: normal;
@@ -102,12 +109,13 @@ button.button1 {
   background: rgb(254 167 1);
   cursor: pointer;
   height: 40px;
-  width: 115px;
+  width: 100px;
   border: solid rgb(254 167 1) 2px;
   font-family: Roboto;
+  margin-left: 10px;
 }
 
-button.button2 {
+button.button4 {
   border-radius: 5px;
   font-size: inherit;
   font-style: normal;
@@ -115,9 +123,9 @@ button.button2 {
   background: white;
   cursor: pointer;
   height: 40px;
-  width: 100px;
+  width: 115px;
   border: solid black 2px;
-  margin-left: 10px;
+  
   font-family: Roboto;
 }
 
@@ -132,7 +140,7 @@ button.button2 {
   padding-top: 5%;
 }
 
-.login_form {
+.register_form {
   display: grid;
   width: 90%;
   margin-top: 70px;
@@ -176,16 +184,11 @@ p {
   color: grey;
 }
 
-.privacy_register a {
+a {
   color: deepskyblue;
-  text-decoration: none;
 }
 
-a.create_account:hover {
-  text-decoration: underline;
-} 
-
-.create_account:hover {
+a:hover {
   cursor: pointer;
   text-decoration: underline;
 } 
@@ -194,12 +197,12 @@ input:focus {
   outline: none;
 }
 
-button.button2:hover {
+button.button4:hover {
     background-color: black;
     color: rgb(254 167 1);
 }
 
-button.button1:hover {
+button.button5:hover {
     background-color: black;
     color: rgb(254 167 1);
     border: solid black 2px;
@@ -210,6 +213,26 @@ button.button3:hover {
     color: black;
     border:solid rgb(254 167 1) 1px;
     transition-duration: 0.5s;
+}
+
+input.name {
+    width: 25%;
+    margin-right: 10px;
+}
+
+.fullname {
+    text-align: left;
+}
+
+input.surname {
+    width: 65%;
+}
+
+a.tos_pol {
+    color: black;
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: 500;
 }
 
 </style>
