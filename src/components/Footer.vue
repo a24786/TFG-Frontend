@@ -26,7 +26,7 @@
       </div>
       </div>
       <hr>
-      <img src="../assets/logo_white_large1.png">
+      <img id="img-footer" src="../assets/logo_white_large1.png">
   </div>
 </template>
 <style>
@@ -63,7 +63,7 @@ export default {
   width: 90%;
 }
 
-img{
+#img-footer{
   width: 10%;
   margin: 80px 0px 80px 0px;
 }
