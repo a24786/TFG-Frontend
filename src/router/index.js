@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 // import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
+import Cookies from '../views/Cookies.vue'
+import DropDown from '@/components/DropDown.vue' 
 
 Vue.use(VueRouter)
 
@@ -21,6 +23,16 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: Register
+  },
+  {
+    path: '/cookies',
+    name: 'Cookies',
+    component: Cookies
+  },
+  {
+    path: '/',
+    name: 'DropDown',
+    component: DropDown
   }
 ]
 
