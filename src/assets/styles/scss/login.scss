@@ -1,0 +1,172 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+.login {
+    height: 100%;
+}
+
+div#app {
+    height: 100%;
+}
+
+.loginForm {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+  
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+  }
+  
+  .block1 {
+    width: 50%;
+    height: 100%;
+    background-color: #FEA701;
+    text-align: center;
+    color: black;
+  }
+  
+  .block2 {
+    width: 50%;
+    font-family: Roboto;
+  }
+  
+  .block1 img {
+    width: 85%;
+    padding-top: 0%;
+  }
+  
+  .block1 h1{
+    font-family: Pattaya;
+    font-size: xxx-large;
+    margin-top: 4px;
+  }
+  
+  .buttons {
+    text-align: right;
+    padding-right: 9%;
+    padding-top: 5%;
+  }
+  
+  button.button1 {
+    border-radius: 5px;
+    font-size: inherit;
+    font-style: normal;
+    font-weight: 600;
+    background: rgb(254 167 1);
+    cursor: pointer;
+    height: 40px;
+    width: 115px;
+    border: solid rgb(254 167 1) 2px;
+    font-family: Roboto;
+  }
+  
+  button.button2 {
+    border-radius: 5px;
+    font-size: inherit;
+    font-style: normal;
+    font-weight: 600;
+    background: white;
+    cursor: pointer;
+    height: 40px;
+    width: 100px;
+    border: solid black 2px;
+    margin-left: 10px;
+    font-family: Roboto;
+  }
+  
+  .form h2 {
+    font-size: xx-large;
+    text-align: left;
+    color: black;
+  }
+  
+  .form {
+    padding-left: 9%;
+    padding-top: 5%;
+  }
+  
+  .login_form {
+    display: grid;
+    width: 90%;
+    margin-top: 70px;
+  }
+  
+  input {
+    margin-top: 20px;
+    border-radius: 10px;
+    font-size: inherit;
+    font-style: normal;
+    font-weight: 500;
+    cursor: auto;
+    height: 45px;
+    background-color: white;
+    border-color: black;
+    padding-left: 20px;
+    font-family: Roboto;
+  }
+  
+  button.button3 {
+    margin-top: 50px;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 600;
+    cursor: pointer;
+    height: 60px;
+    border-color: black;
+    padding-left: 20px;
+    background-color: black;
+    font-size: x-large;
+    color: white;
+    font-family: Roboto;
+    transition-duration: 0.5s;
+  }
+  
+  .privacy_register {
+    text-align: center;
+  }
+  
+  p {
+    color: grey;
+  }
+  
+  .privacy_register a {
+    color: deepskyblue;
+    text-decoration: none;
+  }
+  
+  a.create_account:hover {
+    text-decoration: underline;
+  } 
+  
+  .create_account:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  } 
+  
+  input:focus {
+    outline: none;
+  }
+  
+  button.button2:hover {
+      background-color: black;
+      color: rgb(254 167 1);
+  }
+  
+  button.button1:hover {
+      background-color: black;
+      color: rgb(254 167 1);
+      border: solid black 2px;
+  }
+  
+  button.button3:hover {
+      background-color: rgb(254 167 1);
+      color: black;
+      border:solid rgb(254 167 1) 1px;
+      transition-duration: 0.5s;
+  }
