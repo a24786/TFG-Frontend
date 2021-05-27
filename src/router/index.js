@@ -5,6 +5,7 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Cookies from '../views/Cookies.vue'
 import DropDown from '@/components/DropDown.vue' 
+import Profile from '../views/Profile.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/',
     name: 'DropDown',
     component: DropDown
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: Profile
   }
 ]
 
