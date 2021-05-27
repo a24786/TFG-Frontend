@@ -13,7 +13,7 @@
       </div>
       <div class="form">
         <h2>Registro de usuario</h2>
-        <form class="register_form">
+        <form class="register_form" @submit.prevent="submit">
           <input
             type="text"
             name="name"
@@ -51,7 +51,7 @@
             v-model="password2"
             required
           />
-          <button class="button3" @click="submit()">Registrarse</button>
+          <button class="button3">Registrarse</button>
         </form>
       </div>
       <div class="privacy_register">
@@ -90,9 +90,14 @@ export default {
   },
   methods : {
     submit(){
+
       if(this.avisoPwd(this.password1, this.password2)){
         this.user = {name: this.name, lastName: this.lastName, phoneNumber: this.telephone, email: this.email, password: this.password1} 
-        this.$store.dispatch('registerUser', this.user)
+        let success = this.$store.dispatch('registerUser', this.user)
+
+        if(success){
+        this.$router.push("/")
+        }
       }else{
         this.$store.dispatch('errorPwd')
       }
