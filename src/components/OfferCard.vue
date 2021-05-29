@@ -65,25 +65,27 @@ export default {
 
 .infoOffer .title_offer {
     font-size: larger;
-    text-align: left;
-    width: 58%;
-    margin-left: 7%;
+    font-weight: 600;
+    text-align: center;
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    margin-top: 4%;
 }
 
 .infoOffer .price {
     color: #FEA701;
-    width: 30%;
-    font-size: x-large;
-    margin-top: 17px;
-}
-
-.infoOffer {
-    display: flex;
+    width: 90%;
+    font-size: 35px;
+    margin-top: 5%;
+    margin-left: 5%;
+    text-align: center;
+    margin-bottom: 5%;
 }
 
 .back_difuminado {
     position: absolute;
-    width: 241px;
+    width: 92%;
     height: 10px;
     background-color: black;
     padding: 10px;
