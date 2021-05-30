@@ -48,7 +48,12 @@ export default new Vuex.Store({
                     let expires = "expires=" + d.toUTCString();
                     document.cookie =
                         data.name + "=" + data.value + ";" + expires + ";path=/";
+                    return true;
                 })
+        },
+        errorPwd(){
+            var aviso = `<p class="avisoPwd">Las contraseñas no coinciden</p>`
+            document.querySelector(".confPwd").insertAdjacentHTML("afterend", aviso);
         }
     },
     mutations: {
