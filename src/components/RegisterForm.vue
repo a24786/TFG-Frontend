@@ -151,8 +151,8 @@ body {
 }
   
 .block2 {
-    width: 50%;
-    font-family: Roboto;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
 }
   
 .block1 img {

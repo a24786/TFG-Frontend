@@ -11,45 +11,46 @@ import Profile from '../views/Profile.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: 'Home',
-  //   component: Home
-  // },
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login
-  },
-  {
-    path: '/register',
-    name: 'Register',
-    component: Register
-  },
-  {
-    path: '/cookies',
-    name: 'Cookies',
-    component: Cookies
-  },
-  {
-    path: '/',
-    name: 'DropDown',
-    component: DropDown
-  },
-  {
-    path: '/offers',
-    name: 'Offers',
-    component: Offers
-  },
-  {
-    path: '/profile',
-    name: 'Profile',
-    component: Profile
-  }
+    // {
+    //   path: '/',
+    //   name: 'Home',
+    //   component: Home
+    // },
+    {
+        path: '/login',
+        name: 'Login',
+        component: Login
+    },
+    {
+        path: '/register',
+        name: 'Register',
+        component: Register
+    },
+    {
+        path: '/cookies',
+        name: 'Cookies',
+        component: Cookies
+    },
+    {
+        path: '/',
+        name: 'DropDown',
+        component: DropDown
+    },
+    {
+        path: '/offers',
+        name: 'Offers',
+        component: Offers
+    },
+    {
+        path: '/profile',
+        name: 'Profile',
+        component: Profile
+    }
 ]
 
 const router = new VueRouter({
-  routes
+    routes,
+    mode: 'history'
 })
 
 export default router

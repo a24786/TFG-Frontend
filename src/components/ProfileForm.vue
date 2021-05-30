@@ -17,7 +17,7 @@
             type="name"
             name="name"
             placeholder="Full name"
-            v-model="password"
+            v-model="name"
           />
     <h3 class="input-titles">Contraseña</h3>
           <input
@@ -38,7 +38,7 @@
             type="tlf"
             name="tlf"
             placeholder="Num. Teléfono"
-            v-model="email"
+            v-model="telephone"
           />
           <button class="button3">Editar perfil</button>
         </div>
@@ -58,6 +58,10 @@ export default {
   },
   data() {
     return {
+      name:'',
+      email:'',
+      password:'',
+      telephone:'',
       man: man,
     };
   },
@@ -67,10 +71,7 @@ export default {
 };
 </script>
 <style>
-.form {
-  padding-left: 9%;
-  padding-top: 5%;
-}
+
 
 .register_form {
   display: grid;
@@ -141,21 +142,22 @@ button.button5:hover {
   padding-left: 50px;
 }
 .form {
-  width: 750px;
+  width: 100%;
+  padding: 5%;
 }
 .profileImage {
-    margin-right: 25px;
+  margin-right: 25px;
   float: left;
   width: 250px;
 }
 .register_form {
   display: grid;
-  width: 155%;
+  width: 85%;
   margin-top: 30px;
 }
 .registerForm1 {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 .input-titles {
   margin-bottom: auto;

@@ -27,6 +27,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   width: 115px;
+  float: right;
 
 }
 .buttonsMenu .buttonProfile {

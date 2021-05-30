@@ -5,9 +5,8 @@
       <div class="profileReservas">
         <ProfileReservas></ProfileReservas>
       </div>
-      <div>
-        <div >
-        
+      <div class="user-info-wrapper">
+        <div>
         <h1 class="titleUser">Usuario</h1>
         </div>
         <ProfileForm></ProfileForm>
@@ -38,11 +37,16 @@ padding-left: 33.75px
 .usuarioTitle{
   float: left;
 }
+.user-info-wrapper{
+  width: 80%;
+}
 .profileReservas{
-  padding-right: 100px;
+  padding-right: 5%;
+  width: 20%;
 }
 .profile {
   display: flex;
-  margin: 45px 0 0 150px;
+  flex-wrap: nowrap;
+  margin-top: 45px;
 }
 </style>
