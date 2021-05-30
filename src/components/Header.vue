@@ -14,7 +14,7 @@
       />
     </div>
     <div class="user">
-      <img class="user-image">
+      <img id="glass" class="headerUser" :src="man" alt="%" width="25em" />
        
   </div>
   </div>
@@ -23,17 +23,23 @@
 <script>
 import glass from "@/assets/magnifying-glass.svg";
 import logo from "@/assets/logo_small.png";
+import man from "@/assets/man.svg";
+
 export default {
   data: function() {
     return {
       glass: glass,
       logo: logo,
+      man:man
     };
   },
 };
 </script>
 
 <style>
+.headerUser{
+  width: 20%;
+}
 .img-logo-wrapper{
     width: 25%;
 }
