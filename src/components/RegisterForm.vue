@@ -7,13 +7,13 @@
     <div class="block2">
       <div class="buttons">
         <router-link to="/login">
-          <button class="button4">Inicia sesión</button>
+          <button class="buttonRegister4">Inicia sesión</button>
         </router-link>
-        <button class="button5">Regístrate</button>
+        <button class="buttonRegister5">Regístrate</button>
       </div>
       <div class="form">
         <h2>Registro de usuario</h2>
-        <form class="register_form" @submit.prevent="submit">
+        <form class="register_form1" @submit.prevent="submit">
           <input
             type="text"
             name="name"
@@ -173,7 +173,7 @@ body {
     padding-top: 5%;
 }
   
-button.button5 {
+button.buttonRegister5 {
     border-radius: 5px;
     font-size: inherit;
     font-style: normal;
@@ -187,7 +187,7 @@ button.button5 {
     margin-left: 10px;
 }
   
-button.button4 {
+button.buttonRegister4 {
     border-radius: 5px;
     font-size: inherit;
     font-style: normal;
@@ -212,13 +212,13 @@ button.button4 {
     padding-top: 5%;
 }
   
-.register_form {
+.register_form1 {
     display: grid;
     width: 90%;
     margin: 0%;
 }
   
-.register_form input {
+.register_form1 input {
     margin-top: 7%;
     border-radius: 10px;
     font-size: inherit;
@@ -271,12 +271,12 @@ input:focus {
     outline: none;
 }
   
-button.button4:hover {
+button.buttonRegister4:hover {
       background-color: black;
       color: rgb(254 167 1);
 }
   
-button.button5:hover {
+button.buttonRegister5:hover {
       background-color: black;
       color: rgb(254 167 1);
       border: solid black 2px;

@@ -11,7 +11,7 @@
             <button class="button4">Eliminar foto</button>
           </div>
         </div>
-        <div class="register_form">
+        <div class="register_form2">
           <h3 class="input-titles">Nombre completo</h3>
           <input
             type="name"
@@ -40,7 +40,7 @@
             placeholder="Num. Teléfono"
             v-model="telephone"
           />
-          <button class="button3">Editar perfil</button>
+          <button class="buttonProfile3">Editar perfil</button>
         </div>
       </div>
     </div>
@@ -74,9 +74,27 @@ export default {
 
 
 .register_form {
+  padding-left: 9%;
+  padding-top: 5%;
+}
+.register_form2 input {
+    margin-top: 7%;
+    border-radius: 10px;
+    font-size: inherit;
+    font-style: normal;
+    font-weight: 600;
+    cursor: auto;
+    background-color: white;
+    border-color: black;
+    height: 60%;
+    align-self: end;
+    padding-left: 20px;
+}
+.register_form2 {
   display: grid;
   width: 90%;
   margin-top: 70px;
+  margin-bottom: 50px;
 }
 .buttonsMenu1{
   display: flex;
@@ -167,5 +185,28 @@ button.button5:hover {
   display: inline-grid;
   width: 500px;
 }
+button.buttonProfile3 {
+    margin-top: 50px;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 600;
+    cursor: pointer;
+    height: 60px;
+    border-color: black;
+    padding-left: 5px;
+    background-color: black;
+    font-size: x-large;
+    color: white;
+    font-family: "Roboto",sans-serif;
+    transition-duration: 0.5s;
+    width: 35%;
+}
+
+button.buttonProfile3:hover {
+      background-color: rgb(254 167 1);
+      color: black;
+      border:solid rgb(254 167 1) 1px;
+      transition-duration: 0.5s;
+}  
 </style>
 
