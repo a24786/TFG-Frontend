@@ -90,10 +90,26 @@ export default {
     background-color: black;
     padding: 10px;
     top: 24%;
-    box-shadow: 0px -6px 5px 0px black;
+    box-shadow: 0.5px -4px 5px 1px black;
 }
 
 .trans {
-    opacity: 0.5;
+    opacity: 0.3;
+}
+
+@media only screen and (max-width: 1440px) {
+  .back_difuminado {
+    height: 5px;
+  }
+  .infoOffer h3 {
+    top: 5%;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .back_difuminado {
+    width: 89%;
+  }
+
 }
 </style>
