@@ -1,7 +1,7 @@
 <template>
   <div class="registerForm1">
     <div class="block2">
-      <div class="form">
+      <div class="formProfile">
 
         <div class="perfilImageOptions">
             
@@ -137,7 +137,7 @@ border: solid grey 1px;
   height: 40px;
   width: 115px;
     width: 100%;
-  font-family: Roboto;
+  font-family: 'Roboto',sans-serif;
   margin: 0 0 20px 0;
   padding: 0px;
 }
