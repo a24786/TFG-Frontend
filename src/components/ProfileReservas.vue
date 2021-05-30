@@ -1,7 +1,7 @@
 <template>
 <div class="buttonsMenu">
-  <button class="button5">Perfil</button>
-  <button class="button4">Reservas</button>
+  <button class="button5">Perfil     > </button>
+  <button class="button4">Reservas     ></button>
 </div>
 </template>
 

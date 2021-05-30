@@ -6,6 +6,10 @@
         <ProfileReservas></ProfileReservas>
       </div>
       <div>
+        <div >
+        
+        <h1 class="titleUser">Usuario</h1>
+        </div>
         <ProfileForm></ProfileForm>
       </div>
     </div>
@@ -27,11 +31,18 @@ export default {
 };
 </script>
 <style>
+.titleUser{
+text-align: left;
+padding-left: 33.75px
+}
+.usuarioTitle{
+  float: left;
+}
 .profileReservas{
   padding-right: 100px;
 }
 .profile {
   display: flex;
-  margin: 75px 0 0 500px;
+  margin: 45px 0 0 150px;
 }
 </style>
