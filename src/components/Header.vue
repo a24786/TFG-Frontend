@@ -94,7 +94,7 @@ export default {
   transform: scaleX(-1);
 }
 #logo {
-  width: 8em;
+  width: 6.5em;
   display: flex;
   margin-left: 2em;
 }

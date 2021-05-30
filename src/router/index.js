@@ -7,6 +7,7 @@ import Cookies from '../views/Cookies.vue'
 import DropDown from '@/components/DropDown.vue'
 import Offers from '../views/Offers.vue'
 import Profile from '../views/Profile.vue'
+import Reservations from '../views/Reservations.vue'
 
 Vue.use(VueRouter)
 
@@ -45,6 +46,11 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: Profile
+  },
+  {
+    path: '/reservations',
+    name: 'ReservationsList',
+    component: Reservations
   }
 ]
 
