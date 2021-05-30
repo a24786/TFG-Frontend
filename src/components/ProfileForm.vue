@@ -43,16 +43,6 @@
           <button class="button3">Editar perfil</button>
         </div>
       </div>
-      <div class="privacy_register">
-        <p>
-          Clicando en "Reqistrarse" acepta nuestras <a class="tos_pol">TOS</a> y
-          <a class="tos_pol">Politicas de Privacidad</a>
-        </p>
-        <p>
-          ¿Ya tienes cuenta propia?
-          <router-link to="/login"><a>Inicia Sesión</a></router-link>
-        </p>
-      </div>
     </div>
   </div>
 </template>

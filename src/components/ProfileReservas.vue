@@ -1,7 +1,7 @@
 <template>
 <div class="buttonsMenu">
-  <button class="button5">Perfil     > </button>
-  <button class="button4">Reservas     ></button>
+  <button class="buttonProfile">Perfil     > </button>
+  <button class="buttonReserva">Reservas     ></button>
 </div>
 </template>
 
@@ -29,7 +29,7 @@ export default {
   width: 115px;
 
 }
-.buttonsMenu .button5 {
+.buttonsMenu .buttonProfile {
   border-radius: 5px;
   font-size: inherit;
   font-style: normal;
@@ -44,7 +44,7 @@ export default {
   margin: 0 0 20px 0;
   padding: 0px;
 }
-.buttonsMenu .button4 {
+.buttonsMenu .buttonReserva {
   margin-bottom: 20px;
   border-radius: 5px;
   font-size: inherit;
@@ -60,11 +60,11 @@ export default {
   margin: 0 0 20px 0;
   padding: 0px;
 }
-button.button4:hover {
+button.buttonReserva:hover {
     background-color: black;
     color: rgb(254 167 1);
 }
-button.button5:hover {
+button.buttonProfile:hover {
     background-color: black;
     color: rgb(254 167 1);
     border: solid black 2px;
