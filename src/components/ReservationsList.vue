@@ -2,7 +2,7 @@
   <div class="barInfoCard">
     <div class="barInfo">
       <div class="leftInfo">
-        <img class="svgUser" :src="info" alt="%" />
+        <img class="svgInfo" :src="info" alt="%" />
         <h2 class="mesa-Aforo">MESA Y AFORO</h2>
       </div>
       <div class="rightInfo">
@@ -27,6 +27,7 @@ import home from "@/assets/home.svg";
 import user from "@/assets/user.svg";
 import stopwatch from "@/assets/stopwatch.svg";
 import info from "@/assets/info.svg";
+import man from "@/assets/man.svg";
 
 export default {
   name: "reservationsList",
@@ -38,7 +39,7 @@ export default {
       user: user,
       home: home,
       stopwatch: stopwatch,
-      info: info,
+      info: info, man:man
     };
   },
   methods: {
@@ -67,6 +68,11 @@ export default {
 .leftIcons {
   align-items: flex-start;
 }
+.svgInfo{
+  margin-right: 15px;
+    width: 20px;
+
+}
 .svgHome {
   width: 20px;
 }
@@ -80,11 +86,16 @@ export default {
 .barInfoCard {
   align-items: center;
   background-color: silver;
+  border: solid silver 1px;
+  border-radius: 4px;
 }
 .barName {
   text-align: right;
+  margin: 26px;
 }
 .mesa-Aforo {
+  margin-top: 26px;
   text-align: left;
+  color: goldenrod;
 }
 </style>
