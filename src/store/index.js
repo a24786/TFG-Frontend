@@ -104,6 +104,7 @@ export default new Vuex.Store({
                     
                     markers.push({
                         id: bar.idbar,
+                        address: bar.address,
                         position: {lat: bar.latitude,
                             lng: bar.length},
                         title: bar.name
