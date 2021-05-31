@@ -2,9 +2,7 @@
   <div class="registerForm1">
     <div class="block2">
       <div class="formProfile">
-
         <div class="perfilImageOptions">
-            
           <img class="profileImage" :src="man" alt="%" />
           <div class="buttonsMenu1">
             <button class="button5">Subir foto</button>
@@ -19,7 +17,7 @@
             placeholder="Full name"
             v-model="name"
           />
-    <h3 class="input-titles">Contraseña</h3>
+          <h3 class="input-titles">Contraseña</h3>
           <input
             type="password"
             name="password"
@@ -48,7 +46,6 @@
 </template>
 
     
-
 <script>
 import man from "@/assets/man.svg";
 export default {
@@ -58,10 +55,10 @@ export default {
   },
   data() {
     return {
-      name:'',
-      email:'',
-      password:'',
-      telephone:'',
+      name: "",
+      email: "",
+      password: "",
+      telephone: "",
       man: man,
     };
   },
@@ -71,24 +68,22 @@ export default {
 };
 </script>
 <style>
-
-
 .register_form {
   padding-left: 9%;
   padding-top: 5%;
 }
 .register_form2 input {
-    margin-top: 7%;
-    border-radius: 10px;
-    font-size: inherit;
-    font-style: normal;
-    font-weight: 600;
-    cursor: auto;
-    background-color: white;
-    border-color: black;
-    height: 60%;
-    align-self: end;
-    padding-left: 20px;
+  margin-top: 7%;
+  border-radius: 10px;
+  font-size: inherit;
+  font-style: normal;
+  font-weight: 600;
+  cursor: auto;
+  background-color: white;
+  border-color: black;
+  height: 60%;
+  align-self: end;
+  padding-left: 20px;
 }
 .register_form2 {
   display: grid;
@@ -96,14 +91,13 @@ export default {
   margin-top: 70px;
   margin-bottom: 50px;
 }
-.buttonsMenu1{
+.buttonsMenu1 {
   display: flex;
   flex-wrap: wrap;
   width: 145px;
-      padding-top: 21px;
-          padding-top: 50px;
-    padding-left: 30px;
-
+  padding-top: 21px;
+  padding-top: 50px;
+  padding-left: 30px;
 }
 .buttonsMenu1 .button5 {
   border-radius: 5px;
@@ -112,13 +106,13 @@ export default {
   font-weight: 600;
   background: skyblue;
   color: royalblue;
-border: solid skyblue 2px;
+  border: solid skyblue 2px;
   cursor: pointer;
   height: 40px;
   width: 115px;
-   background: skyblue;
+  background: skyblue;
   color: royalblue;
-border: solid skyblue 2px;
+  border: solid skyblue 2px;
   font-family: Roboto;
   width: 100%;
   margin: 0 0 20px 0;
@@ -130,30 +124,29 @@ border: solid skyblue 2px;
   font-size: inherit;
   font-style: normal;
   font-weight: 600;
-   background: white;
+  background: white;
   color: crimson;
-border: solid grey 1px;
+  border: solid grey 1px;
   cursor: pointer;
   height: 40px;
   width: 115px;
-    width: 100%;
-  font-family: 'Roboto',sans-serif;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
   margin: 0 0 20px 0;
   padding: 0px;
 }
 button.button4:hover {
-    background-color: crimson;
-    color: white;
+  background-color: crimson;
+  color: white;
 }
 button.button5:hover {
-    background-color:royalblue;
-    color: skyblue;
-    border: solid royalblue 2px;
+  background-color: royalblue;
+  color: skyblue;
+  border: solid royalblue 2px;
 }
-/* ------------------------------ */
-.perfilImageOptions{
-    display: inline-block;
-    width: 100%;
+.perfilImageOptions {
+  display: inline-block;
+  width: 100%;
 }
 .uploadPhoto {
   display: grid;
@@ -186,27 +179,27 @@ button.button5:hover {
   width: 500px;
 }
 button.buttonProfile3 {
-    margin-top: 50px;
-    border-radius: 10px;
-    font-style: normal;
-    font-weight: 600;
-    cursor: pointer;
-    height: 60px;
-    border-color: black;
-    padding-left: 5px;
-    background-color: black;
-    font-size: x-large;
-    color: white;
-    font-family: "Roboto",sans-serif;
-    transition-duration: 0.5s;
-    width: 35%;
+  margin-top: 50px;
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: 600;
+  cursor: pointer;
+  height: 60px;
+  border-color: black;
+  padding-left: 5px;
+  background-color: black;
+  font-size: x-large;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  transition-duration: 0.5s;
+  width: 35%;
 }
 
 button.buttonProfile3:hover {
-      background-color: rgb(254 167 1);
-      color: black;
-      border:solid rgb(254 167 1) 1px;
-      transition-duration: 0.5s;
-}  
+  background-color: rgb(254 167 1);
+  color: black;
+  border: solid rgb(254 167 1) 1px;
+  transition-duration: 0.5s;
+}
 </style>
 
