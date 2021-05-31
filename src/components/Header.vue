@@ -14,9 +14,8 @@
       />
     </div>
     <div class="user">
-      <img class="user-image">
-       
-  </div>
+      <img src="img/man.77d9312a.svg" alt="%" class="headerImage">
+    </div>
   </div>
 </template>
 
@@ -94,8 +93,13 @@ export default {
   transform: scaleX(-1);
 }
 #logo {
-  width: 8em;
-  display: flex;
-  margin-left: 2em;
+    width: 8em;
+    margin-left: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.headerImage {
+    margin-right: 25px;
+    width: 100px;
 }
 </style>
