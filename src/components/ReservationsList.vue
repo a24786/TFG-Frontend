@@ -1,22 +1,24 @@
 <template>
-  <div class="barInfoCard">
-    <div class="barInfo">
-      <div class="leftInfo">
-        <img class="svgInfo" :src="info" alt="%" />
-        <h2 class="mesa-Aforo">MESA Y AFORO</h2>
+  <div>
+    <div class="barInfoCard">
+      <div class="barInfo">
+        <div class="leftInfo">
+          <img class="svgInfo" :src="info" alt="%" />
+          <h2 class="mesa-Aforo">MESA Y AFORO</h2>
+        </div>
+        <div class="rightInfo">
+          <h1 class="barName">BAR VENADO</h1>
+        </div>
       </div>
-      <div class="rightInfo">
-        <h1 class="barName">BAR VENADO</h1>
-      </div>
-    </div>
-    <hr />
-    <div class="icons">
-      <div class="leftIcons">
-        <img class="svgHome" :src="home" alt="%" />
-        <img class="svgUser" :src="user" alt="%" />
-      </div>
-      <div class="rightIcon">
-        <img class="svgWatch" :src="stopwatch" alt="%" />
+      <hr />
+      <div class="icons">
+        <div class="leftIcons">
+          <img class="svgHome" :src="home" alt="%" />
+          <img class="svgUser" :src="user" alt="%" />
+        </div>
+        <div class="rightIcon">
+          <img class="svgWatch" :src="stopwatch" alt="%" />
+        </div>
       </div>
     </div>
   </div>
@@ -39,24 +41,28 @@ export default {
       user: user,
       home: home,
       stopwatch: stopwatch,
-      info: info, man:man
+      info: info,
+      man: man,
     };
   },
   methods: {
     submit() {},
   },
+  created() {
+    this.$store.dispatch("getReservations");
+  },
 };
 </script>
 
 <style>
-.leftInfo{
-    display: flex;
+.leftInfo {
+  display: flex;
 }
-.rightInfo{
+.rightInfo {
 }
-.barInfo{
-    display: flex;
-    justify-content: space-between;
+.barInfo {
+  display: flex;
+  justify-content: space-between;
 }
 .icons {
   justify-content: space-between;
@@ -68,10 +74,9 @@ export default {
 .leftIcons {
   align-items: flex-start;
 }
-.svgInfo{
+.svgInfo {
   margin-right: 15px;
-    width: 20px;
-
+  width: 20px;
 }
 .svgHome {
   width: 20px;

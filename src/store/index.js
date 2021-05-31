@@ -9,6 +9,7 @@ const BASE_URL = "http://gotheretfg.azurewebsites.net/"
 
 export default new Vuex.Store({
     state: {
+        userReservations:[],
         user: {
 
         }
@@ -54,9 +55,19 @@ export default new Vuex.Store({
         errorPwd(){
             var aviso = `<p class="avisoPwd">Las contraseñas no coinciden</p>`
             document.querySelector(".confPwd").insertAdjacentHTML("afterend", aviso);
+        },
+        getReservations(state){
+            fetch(BASE_URL + 'api/reservations/' + state.userToken)
+                .then(response => response.json())
+                .then(data => {
+                    state.commit('userReservations', data)
+                });
         }
     },
     mutations: {
+        userReservations(context, data){
+            this.state.userReservations = data
+        }
         // fetchRegisterUsers(state, data){
         //     state.users = data
         //   },
