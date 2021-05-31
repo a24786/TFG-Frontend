@@ -9,11 +9,9 @@ const BASE_URL = "http://gotheretfg.azurewebsites.net/"
 
 export default new Vuex.Store({
     state: {
-        user: {
-
-        },
+        user: {},
         offers: [],
-        bars:[],
+        bars: [],
         coordinates: {},
         longitude: 0,
         latitude: 0,
@@ -97,8 +95,8 @@ export default new Vuex.Store({
             fetch(BASE_URL + `api/bars`, { 
             })
             .then(response => response.json())
-            .then(response => {
-            context.commit('barsList', response)
+            .then(dataBar => {
+            context.commit('barsList', dataBar)
             })
         },
     },
@@ -109,8 +107,8 @@ export default new Vuex.Store({
         offersList(data) {
             this.state.offers = data
         },
-        barsList(data) {
-            this.state.bars = data
+        barsList(state, dataBar) {
+            state.bars = dataBar
         },
         //Saco las coordeanadas
         coords(context, coordenadas){

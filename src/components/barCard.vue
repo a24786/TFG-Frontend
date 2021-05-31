@@ -1,6 +1,7 @@
 <template>
   <div class="barCards" >
-    <div class="tarjetaBar" v-for="item in $store.state.bars" :key="item.idBar">
+    <!-- <div>{{$store.state.bars}}</div> -->
+    <div class="tarjetaBar" v-for="item in $store.state.bars" :key="item.idbar">
       <div class="banner_bar">
         <img src="../assets/cafe_croissant.jpg">
       </div>
@@ -77,7 +78,7 @@ export default {
     font-family: 'Roboto';
 }
 
-.back_difuminado_bar {
+/* .back_difuminado_bar {
     height: 40px;
     background-color: black;
     padding: 10px;
@@ -86,7 +87,7 @@ export default {
     margin-left: 3px;
     z-index: 1;
     width: 96.7%;
-}
+} */
 
 p.direccion_bar {
     width: 31%;
@@ -98,8 +99,8 @@ p.direccion_bar {
 
 .button_reservarBar button {
     background-color: white;
-    color: #ecec00;
-    border: 2px #ecec00 solid;
+    color: #FEA701;
+    border: 2px #FEA701 solid;
     border-radius: 20px;
     height: 38px;
     width: 25%;
@@ -107,5 +108,10 @@ p.direccion_bar {
     font-size: 28px;
     margin-top: 20px;
     font-family: 'Roboto';
+}
+
+.button_reservarBar button:hover {
+    cursor: pointer;
+    background-color: black;
 }
 </style>
