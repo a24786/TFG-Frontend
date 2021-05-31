@@ -7,6 +7,7 @@ import Cookies from '../views/Cookies.vue'
 import DropDown from '@/components/DropDown.vue'
 import Offers from '../views/Offers.vue'
 import Profile from '../views/Profile.vue'
+import Bars from '../views/Bars.vue'
 
 Vue.use(VueRouter)
 
@@ -45,7 +46,12 @@ const routes = [
         path: '/profile',
         name: 'Profile',
         component: Profile
-    }
+    },
+    {
+      path: '/bars',
+      name: 'Bars',
+      component: Bars
+    },
 ]
 
 const router = new VueRouter({

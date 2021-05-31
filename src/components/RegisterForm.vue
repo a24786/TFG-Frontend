@@ -73,7 +73,7 @@
 </style>
 <script>
 export default {
-  name: 'registerForm',
+  name: ' registerForm',
   props: {
     msg: String
   },
