@@ -50,17 +50,18 @@ const LINE_PATH_CONFIG = {
 
 const mapSettings = {
   clickableIcons: false,
-  streetViewControl: false,
+  streetViewControl: true,
   panControlOptions: false,
-  gestureHandling: "cooperative",
+  draggable: true,
+  gestureHandling: "greedy",
   fullscreenControl: false,
   backgroundColor: COLORS.LANDSCAPE,
-  mapTypeControl: false,
+  mapTypeControl: true,
   zoomControlOptions: {
     style: "SMALL"
   },
   zoom: 15,
-  minZoom: 10,
+  minZoom: 2,
   maxZoom: 20,
   styles: [
     {
