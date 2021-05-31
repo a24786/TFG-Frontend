@@ -36,6 +36,7 @@ export default {
 .img-logo-wrapper{
     width: 25%;
 }
+
 .header {
   width: 100%;
   height: 15%;
@@ -48,6 +49,7 @@ export default {
   justify-content: center;
   z-index: 0;
 }
+
 .search {
   margin: auto;
   padding: 1%;
@@ -56,6 +58,7 @@ export default {
   border-radius: 2.5%;
   box-sizing: border-box;
 }
+
 .searcher {
       padding: 1.5%;
     padding-left: 2.5em;
@@ -71,20 +74,16 @@ export default {
 .reserves{
   display: flex;
 }
-.searcher:focus {
-  border: none;
-}
+
 .user{
   height:100%;
   width: 25%;
-  
 }
 .user-image{
     display: block;
     margin: auto;
-  /* overflow: hidden; */
-
 }
+
 #glass {
   margin-right: -2.6em;
   margin-bottom: -0.2em;
@@ -92,12 +91,14 @@ export default {
   position: relative;
   transform: scaleX(-1);
 }
+
 #logo {
     width: 8em;
     margin-left: 2em;
     margin-top: 1em;
     margin-bottom: 1em;
 }
+
 .headerImage {
     margin-right: 25px;
     width: 100px;
