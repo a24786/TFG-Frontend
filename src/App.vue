@@ -6,10 +6,12 @@
 
 <script>
 export default {
-  // created() {
-  //   this.$store.dispatch('fetchData')
-  // }
+  created() {
+   this.$store.dispatch('getPosition')
+  }
 }
+
+
 </script>
 <style>
 #app {
