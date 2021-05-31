@@ -8,6 +8,7 @@ import DropDown from '@/components/DropDown.vue'
 import Offers from '../views/Offers.vue'
 import Profile from '../views/Profile.vue'
 import Reservations from '../views/Reservations.vue'
+import Bars from '../views/Bars.vue'
 
 Vue.use(VueRouter)
 
@@ -51,7 +52,12 @@ const routes = [
     path: '/reservations',
     name: 'ReservationsList',
     component: Reservations
-  }
+  },
+  {
+    path: '/bars',
+    name: 'Bars',
+    component: Bars
+  },
 ]
 
 const router = new VueRouter({

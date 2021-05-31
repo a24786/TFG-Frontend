@@ -52,7 +52,7 @@
 <script>
 import man from "@/assets/man.svg";
 export default {
-  name: "ProfileForm",
+  name: "profileForm",
   props: {
     msg: String,
   },

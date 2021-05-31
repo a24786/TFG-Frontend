@@ -1,15 +1,15 @@
 <template>
-  <div class="offerCard">
-    <div class="tarjeta">
+  <div class="offerCard" >
+      <div class="tarjeta" v-for="item in $store.state.offers" :key="item.idOffer">
         <img src="../assets/cafe_croissant.jpg">
         <div class="infoOffer">
             <div class="difuminado">
-              <h3>J-85</h3>
+              <h3>{{item.bar.name}}</h3>
               <div class="back_difuminado trans"></div>
             </div>
-            <p class="title_offer">Café y croissant</p>
-            <p class="price">1,80€</p>
-        </div> 
+            <p class="title_offer">{{item.offerTitle}}</p>
+            <p class="price">{{item.offerPrice}}€</p>
+      </div> 
     </div>
   </div>
 </template>
@@ -19,7 +19,7 @@
 </style>
 <script>
 export default {
-  name: 'footerGeneral',
+  name: 'offerCard',
   props: {
     msg: String
   },
@@ -35,31 +35,37 @@ export default {
 }
 </script>
 <style> 
+.offerCard {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
 .tarjeta {
     width: 17%;
     height: 28%;
     background-color: white;
     border-radius: 38px;
-    position: absolute;
     box-shadow: 0px 5px 10px 0px grey;
+    margin-left: 5%;
+    margin-bottom: 5%;
 }
 
 .tarjeta img {
     width: 100%;
-    height: 38%;
+    height: 100px;
     border-radius: 38px 38px 0px 0px;
     object-fit: cover;
 }
 
 .infoOffer h3 {
-    position: absolute;
-    top: 9%;
-    left: 8%;
     color: white;
     font-size: 28px;
     font-weight: 600;
-    width: 80%;
     text-align: left;
+    padding: 10px;
+    margin-top: -45px;
     z-index: 1;
 }
 
@@ -84,13 +90,12 @@ export default {
 }
 
 .back_difuminado {
-    position: absolute;
-    width: 92%;
     height: 10px;
     background-color: black;
     padding: 10px;
-    top: 24%;
     box-shadow: 0.5px -4px 5px 1px black;
+    margin-top: -69px;
+    z-index: 1;
 }
 
 .trans {

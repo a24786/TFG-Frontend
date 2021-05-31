@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'ProfileReservas',
+  name: 'profileReservas',
   props: {
     msg: String
   },
