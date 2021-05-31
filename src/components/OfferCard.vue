@@ -19,7 +19,7 @@
 </style>
 <script>
 export default {
-  name: 'footerGeneral',
+  name: 'offerCard',
   props: {
     msg: String
   },
