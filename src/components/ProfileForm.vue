@@ -50,6 +50,9 @@
 import man from "@/assets/man.svg";
 export default {
   name: "ProfileForm",
+  created(){
+    this.$store.dispatch('loadUserData', this.$store.state.userToken)   
+  },
   props: {
     msg: String,
   },
@@ -64,6 +67,11 @@ export default {
   },
   methods: {
     submit() {},
+    loadData: function(){
+      this.$nextTick(function(){
+        this.name = this.$state.name;
+      })
+    }
   },
 };
 </script>
