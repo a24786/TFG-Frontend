@@ -51,6 +51,9 @@ export default {
 }
 </script>
 <style> 
+.cookiesPrivacy h1 {
+    margin-top: 5%;
+}
 
 .footerGeneral{
   background-color: black;
@@ -71,10 +74,50 @@ export default {
 .footerGeneral li {
     list-style: none;
     text-align: center;
+    line-height: 25px;
+}
+
+.footerGeneral li:hover {
+    cursor: pointer;
+    color: #FEA701;
 }
 
 .block_info{
   display: flex;
-  margin-left: 40%;
+  margin-left: 28.5%;
+  margin-top: 5%;
+}
+
+.block_info h4 {
+    text-decoration: underline;
+}
+
+.social_media {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.explore {
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.legal {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.social_media ul {
+    padding-left: 0px;
+}
+
+.explore ul {
+    padding-left: 0px;
+}
+
+.legal ul {
+    padding-left: 0px;
 }
 </style>
