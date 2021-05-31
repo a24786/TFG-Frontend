@@ -14,14 +14,8 @@
       />
     </div>
     <div class="user">
-<<<<<<< HEAD
-      <img id="glass" class="headerUser" :src="man" alt="%" width="25em" />
-       
-  </div>
-=======
       <img src="img/man.77d9312a.svg" alt="%" class="headerImage">
     </div>
->>>>>>> origin/develop
   </div>
 </template>
 
@@ -105,11 +99,6 @@ export default {
 }
 
 #logo {
-<<<<<<< HEAD
-  width: 6.5em;
-  display: flex;
-  margin-left: 2em;
-=======
     width: 8em;
     margin-left: 2em;
     margin-top: 1em;
@@ -119,6 +108,5 @@ export default {
 .headerImage {
     margin-right: 25px;
     width: 100px;
->>>>>>> origin/develop
 }
 </style>
