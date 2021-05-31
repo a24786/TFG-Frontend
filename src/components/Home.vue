@@ -118,6 +118,7 @@ methods:{
                     <div class="media">
                     <div class="media-content">
                         <p class="title is-4">${marker.title}</p>
+                        <p class="title is-4">${marker.address}</p>
                     </div>
                     </div>
                     <div class="content">

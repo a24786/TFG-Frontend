@@ -60,6 +60,7 @@ const mapSettings = {
   zoomControlOptions: {
     style: "SMALL"
   },
+  mapId: "83e47317a8c42fc4",
   zoom: 15,
   minZoom: 2,
   maxZoom: 20,
@@ -75,6 +76,7 @@ const mapSettings = {
     },
     {
       featureType: "poi",
+      elementType: "labels",
       stylers: [{ visibility: "off" }]
     },
     {
