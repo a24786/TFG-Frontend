@@ -2,6 +2,7 @@
 <div class="buttonsMenu">
   <button class="buttonProfile">Perfil     > </button>
   <button class="buttonReserva">Reservas     ></button>
+  <button @click="removeSession()" class="button2">Cerrar sesión</button>
 </div>
 </template>
 
@@ -17,8 +18,13 @@ export default {
   },
   methods : {
     submit(){   
-      }
     },
+    removeSession(){
+      document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+      this.$router.push('login')
+      console.log('reroute to login')
+    }
+  },
     
 }
 </script>

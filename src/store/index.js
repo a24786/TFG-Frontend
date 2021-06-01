@@ -102,11 +102,12 @@ export default new Vuex.Store({
         eventText(e) {
             return `${e.type}: ${e.target.value}`
         },
-        loadUserData(context) {
-            fetch(BASE_URL + `api/user?user=${this.store.userToken}`, {})
+        loadUserData(context, token) {
+            fetch(BASE_URL + `api/users?user=${token}`)
                 .then(response => response.json())
-                .then(response => {
-                    context.commit('userData', response)
+                .then(data => {
+                    context.commit('userData', data)
+                    return data
                 })
         },
         fetchBars(context) {
@@ -132,6 +133,7 @@ export default new Vuex.Store({
             }
             unescape(dc.substring(begin + prefix.length, end));
             context.commit('userTokenValue', unescape(dc.substring(begin + prefix.length, end)))
+            return unescape(dc.substring(begin + prefix.length, end));
         }
     },
     mutations: {
@@ -153,7 +155,7 @@ export default new Vuex.Store({
             state.userToken = userToken
         },
         userData(state, user) {
-            state.user = user
+            this.state.user = user
         }
     },
     modules: {},

@@ -10,12 +10,29 @@
           </div>
         </div>
         <div class="register_form2">
-          <h3 class="input-titles">Nombre completo</h3>
+          <h3 class="input-titles">Nombre</h3>
+          <input type="text" name="name" placeholder="Nombre" v-model="name" />
+          <h3 class="input-titles">Apellido</h3>
           <input
-            type="name"
-            name="name"
-            placeholder="Full name"
-            v-model="name"
+            type="text"
+            name="surname"
+            placeholder="Apellido"
+            v-model="lastName"
+          />
+          <h3 class="input-titles">Num. teléfono</h3>
+          <input
+            type="tlf"
+            name="tlf"
+            placeholder="Num. Teléfono"
+            v-model="phoneNumber"
+          />
+          <h3 class="input-titles">E-mail</h3>
+          <input
+            disabled
+            type="email"
+            name="email"
+            placeholder="E-mail"
+            v-model="email"
           />
           <h3 class="input-titles">Contraseña</h3>
           <input
@@ -23,20 +40,6 @@
             name="password"
             placeholder="Contraseña"
             v-model="password"
-          />
-          <h3 class="input-titles">E-mail</h3>
-          <input
-            type="mail"
-            name="email"
-            placeholder="E-mail"
-            v-model="email"
-          />
-          <h3 class="input-titles">Num. teléfono</h3>
-          <input
-            type="tlf"
-            name="tlf"
-            placeholder="Num. Teléfono"
-            v-model="telephone"
           />
           <button class="buttonProfile3">Editar perfil</button>
         </div>
@@ -50,19 +53,32 @@
 import man from "@/assets/man.svg";
 export default {
   name: "ProfileForm",
-  created(){
-    this.$store.dispatch('loadUserData', this.$store.state.userToken)   
+  beforeCreate() {
+    this.$store.dispatch("loadUserData", this.$store.state.userToken)
+      // .then((e) => {
+      //   this.data = e;
+      // });
   },
-  props: {
-    msg: String,
+  mounted() {
+    this.$store.dispatch("loadUserData", this.$store.state.userToken)
+    console.log("UPDATED");
+    console.log(this.$store.state.userToken);
+    console.log(this.$store.state.user);
+    this.name = this.$store.state.user.name;
+    this.phoneNumber = this.$store.state.user.phoneNumber;
+    this.lastName = this.$store.state.user.lastName;
+    this.email = this.$store.state.user.email;
   },
   data() {
     return {
       name: "",
+      lastName: "",
       email: "",
       password: "",
-      telephone: "",
+      phoneNumber: "",
       man: man,
+      userToken: "",
+      data: null,
     };
   },
   methods: {
