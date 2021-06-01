@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import router from '../router/index.js'
 
 Vue.use(Vuex)
 
@@ -20,7 +21,7 @@ export default new Vuex.Store({
     actions: {
         loginUser(context, user) {
             context.state.user = this.user
-            return fetch(BASE_URL + `api/users/sign-in`, {
+            fetch(BASE_URL + `api/users/sign-in`, {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
@@ -35,12 +36,13 @@ export default new Vuex.Store({
                         let expires = "expires=" + d.toUTCString();
                         let cookie = data.name + "=" + data.value + ";" + expires + ";path=/";
                         document.cookie = cookie
-                        context.commit('userToken', data.value)
-                        return true
+                        router.push("profile")
                     } else {
                         console.log('Error en las credenciales de inicio de sesión')
+                        return false
                     }
-                }).catch(error => {
+                })
+                .catch(error => {
                     console.log('Error en el inicio de sesión')
                     console.log(error)
                 })
@@ -61,7 +63,6 @@ export default new Vuex.Store({
                     let expires = "expires=" + d.toUTCString();
                     let cookie = data.name + "=" + data.value + ";" + expires + ";path=/";
                     document.cookie = cookie
-                    context.commit('userToken', cookie)
                     return true;
                 })
         },
@@ -115,6 +116,23 @@ export default new Vuex.Store({
                     context.commit('barsList', dataBar)
                 })
         },
+        fetchUserToken(context) {
+            var dc = document.cookie;
+            var prefix = "Login=";
+            var begin = dc.indexOf("; " + prefix);
+            if (begin == -1) {
+                begin = dc.indexOf(prefix);
+                if (begin != 0) return null;
+            } else {
+                begin += 2;
+            }
+            var end = document.cookie.indexOf(";", begin);
+            if (end == -1) {
+                end = dc.length;
+            }
+            unescape(dc.substring(begin + prefix.length, end));
+            context.commit('userTokenValue', unescape(dc.substring(begin + prefix.length, end)))
+        }
     },
     mutations: {
         // fetchRegisterUsers(state, data){
@@ -131,10 +149,8 @@ export default new Vuex.Store({
             this.state.latitude = coordenadas.latitude;
             this.state.longitude = coordenadas.longitude;
         },
-        userToken(state, userToken) {
-            console.log(userToken)
-            console.log('asdfasdfasd->' + userToken)
-            this.state.userToken = userToken
+        userTokenValue(state, userToken) {
+            state.userToken = userToken
         },
         userData(state, user) {
             state.user = user
