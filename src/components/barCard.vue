@@ -16,7 +16,7 @@
         <p class="direccion_bar">{{item.address}}</p>
       </div> 
       <div class="button_reservarBar">
-        <button>RESERVAR</button>
+        <button router-link :to="{ name: 'BarReservas', params: { id: item.idbar }}">RESERVAR</button>
       </div>
     </div>
   </div>
