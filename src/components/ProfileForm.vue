@@ -67,11 +67,6 @@ export default {
   },
   methods: {
     submit() {},
-    loadData: function(){
-      this.$nextTick(function(){
-        this.name = this.$state.name;
-      })
-    }
   },
 };
 </script>
