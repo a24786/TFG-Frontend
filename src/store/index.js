@@ -60,7 +60,7 @@ export default new Vuex.Store({
             document.querySelector(".confPwd").insertAdjacentHTML("afterend", aviso);
         },
         getReservations(state){
-            fetch(BASE_URL + 'api/reservations/' + state.userToken)
+            fetch(BASE_URL + 'api/reservations/' + 'fe669962-1669-498e-95c3-38821389f1d2')
                 .then(response => response.json())
                 .then(data => {
                     state.commit('userReservations', data)

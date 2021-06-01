@@ -15,7 +15,7 @@
       <div class="reservationsTitleAndMenu">
         <div class="titleAndDropdown">
             <img class="profileImg" :src="man" alt="%"/>
-          <h1 class="userReservationsTitle">Usuario - Tus reservas</h1>
+          <h1 class="userReservationsTitle">Tus reservas</h1>
           <input class="dropDownMenu">
         </div>
         <ReservationsList></ReservationsList>
@@ -79,6 +79,7 @@ export default {
     height: 100px;
 }
 .userReservationsTitle{
+    margin-left:30px;
     margin-top: 0%;
 }
 </style>

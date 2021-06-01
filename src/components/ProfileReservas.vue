@@ -1,34 +1,41 @@
 <template>
-<div class="buttonsMenu">
-  <button class="buttonProfile">Perfil     > </button>
-  <button class="buttonReserva">Reservas     ></button>
-</div>
+  <div class="buttonsMenu">
+    <button class="buttonProfile">
+      <img class="usuarioBoton" :src="user" alt="%" /> Perfil >
+    </button>
+    <button class="buttonReserva">
+      <img class="usuarioBoton" :src="user" alt="%" />Reservas >
+    </button>
+  </div>
 </template>
 
 <script>
+import user from "@/assets/user.svg";
+
 export default {
-  name: 'profileReservas',
+  name: "profileReservas",
   props: {
-    msg: String
+    msg: String,
   },
   data() {
-    return{
-    }
+    return { user: user };
   },
-  methods : {
-    submit(){   
-      }
-    },
-    
-}
+  methods: {
+    submit() {},
+  },
+};
 </script>
-<style> 
-.buttonsMenu{
+<style>
+.usuarioBoton {
+  width: 20px;
+  margin-left: 10px;
+  float: left;
+}
+.buttonsMenu {
   display: flex;
   flex-wrap: wrap;
-  width: 115px;
+  width: 155px;
   float: right;
-
 }
 .buttonsMenu .buttonProfile {
   border-radius: 5px;
@@ -38,7 +45,7 @@ export default {
   background: rgb(254 167 1);
   cursor: pointer;
   height: 40px;
-  width: 115px;
+  width: 155px;
   border: solid rgb(254 167 1) 2px;
   font-family: Roboto;
   width: 100%;
@@ -54,20 +61,20 @@ export default {
   background: white;
   cursor: pointer;
   height: 40px;
-  width: 115px;
+  width: 155px;
   border: solid black 2px;
-    width: 100%;
+  width: 100%;
   font-family: Roboto;
   margin: 0 0 20px 0;
   padding: 0px;
 }
 button.buttonReserva:hover {
-    background-color: black;
-    color: rgb(254 167 1);
+  background-color: black;
+  color: rgb(254 167 1);
 }
 button.buttonProfile:hover {
-    background-color: black;
-    color: rgb(254 167 1);
-    border: solid black 2px;
+  background-color: black;
+  color: rgb(254 167 1);
+  border: solid black 2px;
 }
 </style>

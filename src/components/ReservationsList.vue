@@ -1,23 +1,38 @@
 <template>
   <div>
-    <div class="barInfoCard">
+    <div
+      class="barInfoCard"
+      v-for="item in $store.state.userReservations"
+      :key="item.idReservationBook"
+    >
       <div class="barInfo">
         <div class="leftInfo">
           <img class="svgInfo" :src="info" alt="%" />
-          <h2 class="mesa-Aforo">MESA Y AFORO</h2>
+          <h2 class="mesa-Aforo">
+            MESA INTERIOR | AFORO:
+            {{ item.scheduleTableReservation.table.capacity }}
+          </h2>
         </div>
         <div class="rightInfo">
-          <h1 class="barName">BAR VENADO</h1>
+          <h1 class="barName">
+            {{ item.scheduleTableReservation.table.bar.name }}
+          </h1>
         </div>
       </div>
-      <hr />
+      <hr class="hr">
       <div class="icons">
         <div class="leftIcons">
-          <img class="svgHome" :src="home" alt="%" />
           <img class="svgUser" :src="user" alt="%" />
+          {{ item.scheduleTableReservation.table.capacity }}
+          <img class="svgHome" :src="home" alt="%" />
         </div>
         <div class="rightIcon">
+          
           <img class="svgWatch" :src="stopwatch" alt="%" />
+          
+            {{ item.reservationDate }} |
+            {{ item.scheduleTableReservation.schedule.checkInHour }}
+          
         </div>
       </div>
     </div>
@@ -55,6 +70,9 @@ export default {
 </script>
 
 <style>
+.hr{
+  width: 100%;
+}
 .leftInfo {
   display: flex;
 }
@@ -70,6 +88,7 @@ export default {
 }
 .rightIcon {
   align-content: right;
+  display: flex;
 }
 .leftIcons {
   align-items: flex-start;
@@ -77,16 +96,18 @@ export default {
 .svgInfo {
   margin-right: 15px;
   width: 20px;
+  margin-left: 10px;
 }
 .svgHome {
   width: 20px;
+  margin-left: 10px;
 }
 .svgUser {
   width: 20px;
+  margin-left: 10px;
 }
 .svgWatch {
   width: 20px;
-  float: right;
 }
 .barInfoCard {
   align-items: center;
@@ -99,7 +120,7 @@ export default {
   margin: 26px;
 }
 .mesa-Aforo {
-  margin-top: 26px;
+  margin-top: 31px;
   text-align: left;
   color: goldenrod;
 }
