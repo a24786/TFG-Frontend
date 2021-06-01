@@ -8,6 +8,7 @@
 export default {
   created() {
    this.$store.dispatch('getPosition')
+   this.$store.dispatch('fetchUserToken')
   }
 }
 
