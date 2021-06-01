@@ -10,7 +10,7 @@
 </template>
 <script>
 // @ is an alias to /src
-import BarCard from '@/components/BarCard.vue' 
+import BarCard from '@/components/barCard.vue' 
 
 export default {
   name: 'bars',
