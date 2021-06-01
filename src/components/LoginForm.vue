@@ -45,10 +45,9 @@ export default {
   methods : {
     submit(){
       this.user = {email: this.email, password: this.password} 
-      this.$store.dispatch('loginUser', this.user)   
+      this.$store.dispatch('loginUser', this.user)
       }
-    },
-    
+  }
 }
 </script>
 <style>
