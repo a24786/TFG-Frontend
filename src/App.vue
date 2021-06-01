@@ -8,6 +8,7 @@
 export default {
   beforeCreate() {
    this.$store.dispatch('getPosition')
+   this.$store.dispatch('fetchUserToken')
   }
 }
 
