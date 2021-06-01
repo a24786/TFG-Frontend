@@ -8,7 +8,11 @@
 export default {
   beforeCreate() {
    this.$store.dispatch('getPosition')
-   this.$store.dispatch('fetchUserToken')
+   this.$store.dispatch('fetchUserToken').then((e) => {
+     if(e==null){
+       this.$router.push('login')
+     }
+   })
   }
 }
 

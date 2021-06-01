@@ -47,8 +47,7 @@ export default {
       this.user = {email: this.email, password: this.password} 
       this.$store.dispatch('loginUser', this.user)
       }
-    },
-    
+  }
 }
 </script>
 <style>
