@@ -16,6 +16,7 @@ export default new Vuex.Store({
         longitude: 0,
         latitude: 0,
         userToken: '',
+        markers: [],
     },
     actions: {
         loginUser(context, user) {
@@ -108,12 +109,27 @@ export default new Vuex.Store({
                     context.commit('userData', response)
                 })
         },
-        fetchBars(context) {
-            fetch(BASE_URL + `api/bars`, {})
-                .then(response => response.json())
-                .then(dataBar => {
-                    context.commit('barsList', dataBar)
+        fetchBars(context, distancia) {
+            let coord = this.getters.getCoodinates
+            let url = BASE_URL + `api/bars/coordinates?distance=${distancia}&latitude=${coord.lat}&length=${coord.lng}`
+            fetch(url, { 
+            })
+            .then(response => response.json())
+            .then(dataBar => {
+                let markers = []
+                dataBar.forEach(bar => {
+                    
+                    markers.push({
+                        id: bar.idbar,
+                        position: {lat: bar.latitude,
+                            lng: bar.length},
+                        title: bar.name
+                        
+                    })
                 })
+            context.commit('barsList', dataBar)
+            context.commit('markers', markers)
+            })
         },
     },
     mutations: {
@@ -125,6 +141,9 @@ export default new Vuex.Store({
         },
         barsList(state, dataBar) {
             state.bars = dataBar
+        },
+        markers(context, markers){
+            this.state.markers = markers;
         },
         //Saco las coordeanadas
         coords(context, coordenadas) {
@@ -141,5 +160,10 @@ export default new Vuex.Store({
         }
     },
     modules: {},
+    getters: {
+        getCoodinates(state){
+           return {lat:  state.latitude , lng: state.longitude}
+        }
+     }
 
 })
