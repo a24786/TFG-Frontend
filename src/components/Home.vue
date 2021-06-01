@@ -2,7 +2,7 @@
 
 <div>
     <Header></Header>
-    <button @click="pedirBar">Pedir bares</button>
+
   <!-- <GoogleMapLoader
     :mapConfig="mapConfig"
     apiKey="AIzaSyD7yHU3hoFHGh8liZIAHJTBUn_Ld7IYTaE"
@@ -30,6 +30,13 @@
     :icon="icon"
     @click="toggleInfoWindow(marker,marker.id)"
   />
+  <GmapMarker   
+    :position="{lat:  $store.state.latitude,lng: $store.state.longitude}"
+    :clickable="true"
+    :draggable="false"
+    :icon="userIcon"
+    @click="toggleInfoWindow(marker,marker.id)"
+  />
   <GmapInfoWindow
        :options="infoOptions"
         :position="infoWindowPos"
@@ -51,6 +58,7 @@ import Header from '@/components/Header.vue'
 // import GoogleMapLoader from "./GoogleMapLoader";
 // import GoogleMapMarker from "./GoogleMapMarker";
 import { POINT_MARKER_ICON_CONFIG } from "@/constants/mapSettings";
+import { POINT_MARKER_USER_ICON_CONFIG } from "@/constants/mapSettings";
  import { mapSettings } from "@/constants/mapSettings";
 
 export default {
@@ -64,6 +72,7 @@ export default {
   data() {
     return {
         icon: POINT_MARKER_ICON_CONFIG,
+        userIcon: POINT_MARKER_USER_ICON_CONFIG,
         mapSettings: mapSettings,
          infoWinOpen: false,
       infoOptions: {
@@ -82,16 +91,12 @@ export default {
   },
    mounted() {
       //set bounds of the map
-      this.$store.dispatch('fetchBars', 5)
+      
      
     },
 methods:{
     pedirBar(){
         this.$store.dispatch('fetchBars', 5)
-        console.log("hola") 
-    },
-    hola(){
-        console.log("hola")   
     },
     toggleInfoWindow(marker, idx){
         this.infoWindowPos = marker.position;
@@ -109,8 +114,12 @@ methods:{
         }
     }, getInfoWindowContent(marker){
         return (`<div class="card">
-                <div class="card-image">
-                    <figure class="image is-4by3">
+                <div class="card-image"  style="overflow-x: auto; display: flex; width: 200px;height: 100px;">
+                    <figure  class="image is-4by3">
+                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
                     <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
                     </figure>
                 </div>
@@ -121,11 +130,8 @@ methods:{
                         <p class="title is-4">${marker.address}</p>
                     </div>
                     </div>
+                    <a href="/bar/${marker.id}/reservas">RESERVAR</a>
                     <div class="content">
-                    
-                    <br>
-                    <time datetime="2016-1-1"></time>
-                    </div>
                 </div>
                 </div>`);
     }

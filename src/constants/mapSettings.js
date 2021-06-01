@@ -1,5 +1,6 @@
 import colorPalette from "@/constants/mapColorPalette";
 
+
 const {
   COLOR_LANDSCAPE,
   COLOR_BORDERS,
@@ -19,13 +20,22 @@ const COLORS = {
 };
 
 const POINT_MARKER_ICON_CONFIG = {
+  path: "M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z",
+  strokeOpacity: 1,
+  strokeWeight: 2,
+  strokeColor: COLORS.POINT,
+  fillColor: COLORS.POINT_FILL,
+  fillOpacity: 1,
+  scale: .05
+};
+const POINT_MARKER_USER_ICON_CONFIG = {
   path: "M 0, 0 m -5, 0 a 5,5 0 1,0 10,0 a 5,5 0 1,0 -10,0",
   strokeOpacity: 0.7,
   strokeWeight: 4,
   strokeColor: COLORS.POINT,
   fillColor: COLORS.POINT_FILL,
   fillOpacity: 0.7,
-  scale: 1
+  scale: 2
 };
 
 const LINE_SYMBOL_CONFIG = {
@@ -147,4 +157,5 @@ const mapSettings = {
   ]
 };
 
-export { mapSettings, LINE_PATH_CONFIG, POINT_MARKER_ICON_CONFIG };
+export { mapSettings, LINE_PATH_CONFIG, POINT_MARKER_ICON_CONFIG, POINT_MARKER_USER_ICON_CONFIG };
+ 

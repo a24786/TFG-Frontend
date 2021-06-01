@@ -78,6 +78,7 @@ export default new Vuex.Store({
             function showPosition(position) {
                 let coordinates = {'latitude': position.coords.latitude, 'longitude': position.coords.longitude}
                 context.commit('coords', coordinates)
+                context.dispatch('fetchBars', 5)
             }
         },
         addEvent ({ type, target }) {
