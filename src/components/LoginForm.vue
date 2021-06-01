@@ -45,9 +45,7 @@ export default {
   methods : {
     submit(){
       this.user = {email: this.email, password: this.password} 
-        if(this.$store.dispatch('loginUser', this.user)  == true){
-          this.$router.push({ name: 'Profile' });
-        } 
+      this.$store.dispatch('loginUser', this.user)
       }
     },
     
