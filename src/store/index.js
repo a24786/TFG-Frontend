@@ -78,7 +78,7 @@ export default new Vuex.Store({
             function showPosition(position) {
                 let coordinates = {'latitude': position.coords.latitude, 'longitude': position.coords.longitude}
                 context.commit('coords', coordinates)
-                context.dispatch('fetchBars', 5)
+                context.dispatch('fetchBars', 10)
             }
         },
         addEvent ({ type, target }) {
@@ -108,8 +108,8 @@ export default new Vuex.Store({
                         address: bar.address,
                         position: {lat: bar.latitude,
                             lng: bar.length},
-                        title: bar.name
-                        
+                        title: bar.name,
+                        images: bar.barImages
                     })
                 })
             context.commit('barsList', dataBar)
