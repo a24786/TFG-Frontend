@@ -1,9 +1,15 @@
 <template>
-<div class="buttonsMenu">
-  <button class="buttonProfile">Perfil     > </button>
-  <button class="buttonReserva">Reservas     ></button>
-  <button @click="removeSession()" class="button2">Cerrar sesión</button>
-</div>
+  <div class="buttonsMenu">
+    <button class="buttonProfile">
+      <img class="usuarioSvg" :src="user" alt="%" />
+      <label class="labelButton">Perfil></label>
+    </button>
+    <button class="buttonReserva">
+      <img class="usuarioSvg" :src="user" alt="%" />
+      <label class="labelButton">Reservas></label>
+    </button>
+    <button @click="removeSession()" class="button2">Cerrar sesión</button>
+  </div>
 </template>
 
 <script>
@@ -17,19 +23,28 @@ export default {
   data() {
     return { user: user };
   },
-  methods : {
-    submit(){   
+  methods: {
+    submit() {},
+    removeSession() {
+      document.cookie.split(";").forEach(function (c) {
+        document.cookie = c
+          .replace(/^ +/, "")
+          .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+      });
+      this.$router.push("login");
+      console.log("reroute to login");
     },
-    removeSession(){
-      document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
-      this.$router.push('login')
-      console.log('reroute to login')
-    }
   },
-    
-}
+};
 </script>
 <style>
+.labelButton{
+      line-height: 13pt;
+}
+.usuarioSvg {
+  margin-right: 20px;
+  width: 25px;
+}
 .usuarioBoton {
   width: 20px;
   margin-left: 10px;

@@ -2,7 +2,7 @@
   <div>
     
     <Header></Header>
-    <div>
+    <div class="heroBanner">
     <img class="barBanner" :src="herobar" alt="%"/>
     
 
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+// import ReservationsByBar from "@/components/ReservationsByBar.vue";
 import ReservationsList from "@/components/ReservationsList.vue";
 import Header from "@/components/Header.vue";
 import ProfileReservas from "@/components/ProfileReservas.vue";
@@ -37,6 +38,7 @@ export default {
     ReservationsList,
     Header,
     ProfileReservas,
+    // ReservationsByBar
   },
   props: {
     msg: String,
@@ -54,6 +56,11 @@ export default {
 </script>
 
 <style>
+.heroBanner{
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+}
 .profileImg{
     margin-top: -120px;
     margin-left: -176px;
@@ -75,8 +82,11 @@ export default {
   border-radius: 10px;
 }
 .barBanner{
+    position: absolute;
+        z-index: -1;
+    top: -429px;
     width: 100%;
-    height: 100px;
+    left: 0;
 }
 .userReservationsTitle{
     margin-left:30px;
