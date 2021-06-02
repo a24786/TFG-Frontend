@@ -41,9 +41,11 @@
        :options="infoOptions"
         :position="infoWindowPos"
         :opened="infoWinOpen"
+        
         @closeclick="infoWinOpen=false"
       >
-        <div v-html="infoContent"></div>
+        <MapInfoWindow :marker="currentMarker"/>
+
          </GmapInfoWindow>
 </GmapMap></div>
     
@@ -54,6 +56,7 @@
 
 <script>
 import Header from '@/components/Header.vue'
+import MapInfoWindow from '@/components/MapInfoWindow.vue'
 
 // import GoogleMapLoader from "./GoogleMapLoader";
 // import GoogleMapMarker from "./GoogleMapMarker";
@@ -65,7 +68,7 @@ export default {
   components: {
     // GoogleMapLoader,
     // GoogleMapMarker,
-
+    MapInfoWindow,
     Header
   },
 
@@ -75,7 +78,9 @@ export default {
         userIcon: POINT_MARKER_USER_ICON_CONFIG,
         mapSettings: mapSettings,
          infoWinOpen: false,
+         currentMarker: {},
       infoOptions: {
+          maxWidth : '250',
           pixelOffset: {
             width: 0,
             height: -35
@@ -95,9 +100,7 @@ export default {
      
     },
 methods:{
-    pedirBar(){
-        this.$store.dispatch('fetchBars', 5)
-    },
+   
     toggleInfoWindow(marker, idx){
         this.infoWindowPos = marker.position;
         this.infoContent = this.getInfoWindowContent(marker);
@@ -113,27 +116,31 @@ methods:{
           this.currentMidx = idx;
         }
     }, getInfoWindowContent(marker){
-        return (`<div class="card">
-                <div class="card-image"  style="overflow-x: auto; display: flex; width: 200px;height: 100px;">
-                    <figure  class="image is-4by3">
-                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                    </figure>
-                </div>
-                <div class="card-content">
-                    <div class="media">
-                    <div class="media-content">
-                        <p class="title is-4">${marker.title}</p>
-                        <p class="title is-4">${marker.address}</p>
-                    </div>
-                    </div>
-                    <a href="/bar/${marker.id}/reservas">RESERVAR</a>
-                    <div class="content">
-                </div>
-                </div>`);
+      this.currentMarker = marker
+        //return (
+        
+          // `<div class="card">
+          //       <div class="card-image"  style="overflow-x: auto; display: flex; width: 200px;height: 100px;">
+          //           <figure  class="image is-4by3">
+          //           <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+          //           <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+          //           <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+          //           <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+          //           <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+          //           </figure>
+          //       </div>
+          //       <div class="card-content">
+          //           <div class="media">
+          //           <div class="media-content">
+          //               <p class="title is-4">${marker.title}</p>
+          //               <p class="title is-4">${marker.address}</p>
+          //           </div>
+          //           </div>
+          //           <a href="/bar/${marker.id}/reservas">RESERVAR</a>
+          //           <div class="content">
+          //       </div>
+          //       </div>`
+          //      );
     }
 }
 }
