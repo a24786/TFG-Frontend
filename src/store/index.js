@@ -74,7 +74,7 @@ export default new Vuex.Store({
         },
         getReservations(state){
             // fetch(BASE_URL + 'api/reservations/' + this.$store.state.userToken)
-            fetch(BASE_URL + 'api/reservations/' + '3d850b46-38c2-4eb3-8db3-5c92f9bdbdad')
+            fetch(BASE_URL + 'api/reservations/' + '0e21d542-26c2-4d43-8c82-a8697e8943c3')
                 .then(response => response.json())
                 .then(data => {
                     state.commit('userReservations', data)

@@ -109,6 +109,7 @@ export default {
   width: 90%;
   margin-top: 70px;
   margin-bottom: 50px;
+  color: black;
 }
 .buttonsMenu1 {
   display: flex;

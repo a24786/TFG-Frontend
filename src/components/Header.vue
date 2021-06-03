@@ -1,8 +1,8 @@
 <template>
   <div class="header">
-      <div class="img-logo-wrapper">
-    <img id="logo" :src="logo" />
-      </div>
+    <div class="img-logo-wrapper">
+    <router-link to="/"><img id="logo" :src="logo" /></router-link>
+    </div>
     <div class="search">
       <img id="glass" :src="glass" alt="%" width="25em" />
       <input
@@ -14,7 +14,7 @@
       />
     </div>
     <div class="user">
-      <img src="img/man.77d9312a.svg" alt="%" class="headerImage">
+      <router-link to="/profile"><img src="img/man.77d9312a.svg" alt="%" class="headerImage"></router-link>
     </div>
   </div>
 </template>

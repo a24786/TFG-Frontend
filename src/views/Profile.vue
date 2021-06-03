@@ -31,8 +31,9 @@ export default {
 </script>
 <style>
 .titleUser{
-text-align: left;
-padding-left: 33.75px
+  text-align: left;
+  padding-left: 33.75px;
+  color: black;
 }
 .usuarioTitle{
   float: left;

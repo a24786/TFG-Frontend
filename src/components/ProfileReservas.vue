@@ -1,19 +1,24 @@
 <template>
   <div class="buttonsMenu">
+    <router-link to="/profile">
     <button class="buttonProfile">
-      <img class="usuarioSvg" :src="user" alt="%" />
-      <label class="labelButton">Perfil></label>
+      <img class="usuarioSvg" :src="user_negro" alt="%" />
+      <label class="labelButton">Perfil ></label>
     </button>
+    </router-link>
+    <router-link to="/reservations">
     <button class="buttonReserva">
-      <img class="usuarioSvg" :src="user" alt="%" />
-      <label class="labelButton">Reservas></label>
+      <img class="usuarioSvg" :src="calendario_negro" alt="%" />
+      <label class="labelButton">Reservas ></label>
     </button>
-    <button @click="removeSession()" class="button2">Cerrar sesión</button>
+    </router-link>
+    <button @click="removeSession()" class="button2 cerrarSesion">Cerrar sesión</button>
   </div>
 </template>
 
 <script>
-import user from "@/assets/user.svg";
+import user_negro from "@/assets/user_negro.svg";
+import calendario_negro from "@/assets/calendario_negro.svg";
 
 export default {
   name: "profileReservas",
@@ -21,7 +26,7 @@ export default {
     msg: String,
   },
   data() {
-    return { user: user };
+    return { user_negro: user_negro, calendario_negro: calendario_negro };
   },
   methods: {
     submit() {},
@@ -39,11 +44,13 @@ export default {
 </script>
 <style>
 .labelButton{
-      line-height: 13pt;
+  cursor: pointer;
+  display: inline-flex;
 }
 .usuarioSvg {
   margin-right: 20px;
   width: 25px;
+  vertical-align: bottom;
 }
 .usuarioBoton {
   width: 20px;
@@ -51,10 +58,13 @@ export default {
   float: left;
 }
 .buttonsMenu {
-  display: flex;
-  flex-wrap: wrap;
   width: 155px;
   float: right;
+}
+.cerrarSesion{
+    height: 40px!important;
+    width: 155px!important;
+    margin-left: 0px!important;
 }
 .buttonsMenu .buttonProfile {
   border-radius: 5px;
