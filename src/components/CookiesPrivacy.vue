@@ -48,10 +48,7 @@
         <p>Si cree que la información que tenemos sobre usted es incorrecta o está incompleta, escríbanos o envíenos un correo electrónico lo antes posible a la dirección anterior. Corregiremos de inmediato cualquier información que resulte incorrecta.</p>
   </div>
 </template>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pattaya&family=Roboto:wght@300;400;500&display=swap');
-</style>
+
 <script>
 export default {
   name: 'cookiesPrivacy',
