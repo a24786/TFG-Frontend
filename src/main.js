@@ -9,7 +9,8 @@ Vue.use(
   VueGoogleMaps,{
     load:{
       key: 'AIzaSyD7yHU3hoFHGh8liZIAHJTBUn_Ld7IYTaE',
-      libraries: 'places'
+      libraries: 'places',
+      maps_id: '83e47317a8c42fc4',
     }
     
   }

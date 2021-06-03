@@ -2,7 +2,7 @@
 
 <div>
     <Header></Header>
-    <button @click="pedirBar">Pedir bares</button>
+
   <!-- <GoogleMapLoader
     :mapConfig="mapConfig"
     apiKey="AIzaSyD7yHU3hoFHGh8liZIAHJTBUn_Ld7IYTaE"
@@ -30,13 +30,22 @@
     :icon="icon"
     @click="toggleInfoWindow(marker,marker.id)"
   />
+  <GmapMarker   
+    :position="{lat:  $store.state.latitude,lng: $store.state.longitude}"
+    :clickable="true"
+    :draggable="false"
+    :icon="userIcon"
+    @click="toggleInfoWindow(marker,marker.id)"
+  />
   <GmapInfoWindow
        :options="infoOptions"
         :position="infoWindowPos"
         :opened="infoWinOpen"
+        
         @closeclick="infoWinOpen=false"
       >
-        <div v-html="infoContent"></div>
+        <MapInfoWindow :marker="currentMarker"/>
+
          </GmapInfoWindow>
 </GmapMap></div>
     
@@ -47,26 +56,31 @@
 
 <script>
 import Header from '@/components/Header.vue'
+import MapInfoWindow from '@/components/MapInfoWindow.vue'
 
 // import GoogleMapLoader from "./GoogleMapLoader";
 // import GoogleMapMarker from "./GoogleMapMarker";
 import { POINT_MARKER_ICON_CONFIG } from "@/constants/mapSettings";
+import { POINT_MARKER_USER_ICON_CONFIG } from "@/constants/mapSettings";
  import { mapSettings } from "@/constants/mapSettings";
 
 export default {
   components: {
     // GoogleMapLoader,
     // GoogleMapMarker,
-
+    MapInfoWindow,
     Header
   },
 
   data() {
     return {
         icon: POINT_MARKER_ICON_CONFIG,
+        userIcon: POINT_MARKER_USER_ICON_CONFIG,
         mapSettings: mapSettings,
          infoWinOpen: false,
+         currentMarker: {},
       infoOptions: {
+          maxWidth : '250',
           pixelOffset: {
             width: 0,
             height: -35
@@ -82,17 +96,11 @@ export default {
   },
    mounted() {
       //set bounds of the map
-      this.$store.dispatch('fetchBars', 5)
+      
      
     },
 methods:{
-    pedirBar(){
-        this.$store.dispatch('fetchBars', 5)
-        console.log("hola") 
-    },
-    hola(){
-        console.log("hola")   
-    },
+   
     toggleInfoWindow(marker, idx){
         this.infoWindowPos = marker.position;
         this.infoContent = this.getInfoWindowContent(marker);
@@ -108,25 +116,31 @@ methods:{
           this.currentMidx = idx;
         }
     }, getInfoWindowContent(marker){
-        return (`<div class="card">
-                <div class="card-image">
-                    <figure class="image is-4by3">
-                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                    </figure>
-                </div>
-                <div class="card-content">
-                    <div class="media">
-                    <div class="media-content">
-                        <p class="title is-4">${marker.title}</p>
-                    </div>
-                    </div>
-                    <div class="content">
-                    
-                    <br>
-                    <time datetime="2016-1-1"></time>
-                    </div>
-                </div>
-                </div>`);
+      this.currentMarker = marker
+        //return (
+        
+          // `<div class="card">
+          //       <div class="card-image"  style="overflow-x: auto; display: flex; width: 200px;height: 100px;">
+          //           <figure  class="image is-4by3">
+          //           <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+          //           <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+          //           <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+          //           <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+          //           <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+          //           </figure>
+          //       </div>
+          //       <div class="card-content">
+          //           <div class="media">
+          //           <div class="media-content">
+          //               <p class="title is-4">${marker.title}</p>
+          //               <p class="title is-4">${marker.address}</p>
+          //           </div>
+          //           </div>
+          //           <a href="/bar/${marker.id}/reservas">RESERVAR</a>
+          //           <div class="content">
+          //       </div>
+          //       </div>`
+          //      );
     }
 }
 }
