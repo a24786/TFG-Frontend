@@ -12,7 +12,7 @@ import BarOffers from '../components/BarOffers.vue'
 import BarReservas from '../components/BarReservas.vue'
 // import store from '../store/index.js'
 // import store from '../store/index.js'
-
+import FloatButtons from '../views/FloatButtons.vue'
 
 Vue.use(VueRouter)
 
@@ -71,7 +71,12 @@ const routes = [
     path: '/bar/:id/reservas',
     name: 'barReservas',
     component: BarReservas
-  }
+  },
+  {
+    path: '/floatButtons',
+    name: 'floatButtons',
+    component: FloatButtons
+  },
 ]
 
 const router = new VueRouter({

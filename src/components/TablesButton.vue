@@ -1,10 +1,10 @@
 <template>
-  <div class="backButton" >
-    <div class="backComponent">
-      <div class="backArrow">
-        <img class="iconArrow" :src="flecha_roja" alt="%" />
+  <div class="tablesButton" >
+    <div class="tablesComponent">
+      <div class="jarBeer">
+        <img class="iconTables" :src="cerveza_naranja" alt="%" />
       </div>
-      <p>VOLVER</p>
+      <p>MESAS</p>
     </div>
   </div>
 </template>
@@ -12,14 +12,14 @@
 
 </style>
 <script>
-import flecha_roja from "@/assets/flecha_roja.svg";
+import cerveza_naranja from "@/assets/cerveza_naranja.svg";
 export default {
-  name: 'backButton',
+  name: 'tablesButton',
   props: {
     msg: String
   },
   data() {
-    return { flecha_roja: flecha_roja};
+    return { cerveza_naranja: cerveza_naranja};
   },
   methods : {
     submit(){   
@@ -29,27 +29,24 @@ export default {
 }
 </script>
 <style>
-.backComponent{
+.tablesComponent{
   text-align: -webkit-center;
   width: 230px;
   height: 60px;
   display: flex;
-  border: 1px solid #ff0000;
+  border: 1px solid #fea701;
   border-radius: 40px;
   cursor: pointer;
-  position: fixed;
-  bottom: 10%;
-  left: 30%;
 }
 
-.backComponent:hover{
-  background-color: rgba(255, 158, 158, 0.267);
-  border: 2px solid #ff0000;
+.tablesComponent:hover{
+  background-color: #fdda9927;
+  border: 2px solid #fea701;
 
 }
 
-.backArrow{
-  border: 1px solid #ff0000;
+.jarBeer{
+  border: 1px solid #fea701;
   border-radius: 66%;
   width: 62px;
   height: 60px;
@@ -57,15 +54,15 @@ export default {
   margin-top: -1px;
 }
 
-.iconArrow {
+.iconTables {
     width: 40px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.backComponent p{
+.tablesComponent p{
   font-family: 'Roboto';
-  color: #ff0000;
+  color: #fea701;
   font-size: 25px;
   margin-left: 23px;
   margin-top: 14px;
