@@ -37,12 +37,15 @@ export default {
   border: 1px solid #fea701;
   border-radius: 40px;
   cursor: pointer;
+  position: fixed;
+  background-color: white;
+  bottom: 5%;
+  right: 30%;
 }
 
 .offersComponent:hover{
-  background-color: #fdda9927;
+  /* background-color: #fdda9927; */
   border: 2px solid #fea701;
-
 }
 
 .tagOffers{

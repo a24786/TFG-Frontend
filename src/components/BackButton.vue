@@ -37,15 +37,15 @@ export default {
   border: 1px solid #ff0000;
   border-radius: 40px;
   cursor: pointer;
+  background-color: white;
   position: fixed;
-  bottom: 10%;
+  bottom: 5%;
   left: 30%;
 }
 
 .backComponent:hover{
-  background-color: rgba(255, 158, 158, 0.267);
+  /* background-color: rgba(255, 158, 158, 0.267); */
   border: 2px solid #ff0000;
-
 }
 
 .backArrow{

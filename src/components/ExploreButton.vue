@@ -37,12 +37,14 @@ export default {
   border: 1px solid #fea701;
   border-radius: 40px;
   cursor: pointer;
+  position: fixed;
+  background-color: white;
+  bottom: 5%;
+  left: 30%;
 }
 
 .exploreComponent:hover{
-  background-color: #fdda9927;
   border: 2px solid #fea701;
-
 }
 
 .searchStars{
