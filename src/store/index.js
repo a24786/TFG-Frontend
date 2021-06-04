@@ -7,7 +7,6 @@ Vue.use(Vuex)
 const BASE_URL = "http://gotheretfg.azurewebsites.net/"
     // const BASE_URL = "http://localhost:8080/"
 
-
 export default new Vuex.Store({
     state: {
         userReservations:[],
@@ -75,6 +74,7 @@ export default new Vuex.Store({
             var aviso = `<p class="avisoPwd">Las contraseñas no coinciden</p>`
             document.querySelector(".confPwd").insertAdjacentHTML("afterend", aviso);
         },
+        //Fetch para sacar las reservas de un usuario / falta filtrar por ACTIVAS O NO
         getReservations(state){
             // fetch(BASE_URL + 'api/reservations/' + this.$store.state.userToken)
             fetch(BASE_URL + 'api/reservations/' + '0e21d542-26c2-4d43-8c82-a8697e8943c3')
