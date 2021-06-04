@@ -10,6 +10,9 @@ import Reservations from '../views/Reservations.vue'
 
 import Bars from '../views/Bars.vue'
 import Offers from '../views/Offers.vue'
+import BarOffers1 from '../views/BarOffers.vue'
+import BarBookings from '../views/BarBookings.vue'
+
 import BarOffers from '../components/BarOffers.vue'
 import BarReservas from '../components/BarReservas.vue'
 
@@ -71,6 +74,17 @@ const routes = [
     name: 'Cookies',
     component: Cookies
   },
+  {
+    path: '/barOffers',
+    name: 'BarOffers',
+    component: BarOffers1
+  },
+  {
+    path: '/barBookings',
+    name: 'BarBookings',
+    component: BarBookings
+  }
+
   // {
   //   path: '/floatButtons',
   //   name: 'floatButtons',

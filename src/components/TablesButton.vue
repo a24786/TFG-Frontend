@@ -37,6 +37,10 @@ export default {
   border: 1px solid #fea701;
   border-radius: 40px;
   cursor: pointer;
+  background-color: white;
+  position: fixed;
+  bottom: 5%;
+  right: 30%;
 }
 
 .tablesComponent:hover{
