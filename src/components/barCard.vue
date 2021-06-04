@@ -1,6 +1,6 @@
 <template>
   <div class="barCards" >
-    <div>{{$store.state.bars}}</div>
+    <!-- <div>{{$store.state.bars}}</div> -->
     <div class="tarjetaBar" v-for="item in $store.state.bars" :key="item.idbar">
       <div class="banner_bar">
         <img src="../assets/cafe_croissant.jpg">
@@ -21,10 +21,7 @@
     </div>
   </div>
 </template>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pattaya&family=Roboto:wght@300;400;500&display=swap');
-</style>
+
 <script>
 export default {
   name: 'barCard',

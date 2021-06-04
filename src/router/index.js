@@ -1,18 +1,22 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
-import Cookies from '../views/Cookies.vue'
-import Offers from '../views/Offers.vue'
+
 import Profile from '../views/Profile.vue'
 import Reservations from '../views/Reservations.vue'
+
 import Bars from '../views/Bars.vue'
+import Offers from '../views/Offers.vue'
 import BarOffers from '../components/BarOffers.vue'
 import BarReservas from '../components/BarReservas.vue'
-// import store from '../store/index.js'
-// import store from '../store/index.js'
 
+import Cookies from '../views/Cookies.vue'
+
+// import store from '../store/index.js'
+// import FloatButtons from '../views/FloatButtons.vue'
 
 Vue.use(VueRouter)
 
@@ -33,21 +37,6 @@ const routes = [
     component: Register
   },
   {
-    path: '/cookies',
-    name: 'Cookies',
-    component: Cookies
-  },
-  // {
-  //   path: '/',
-  //   name: 'DropDown',
-  //   component: DropDown
-  // },
-  {
-    path: '/offers',
-    name: 'Offers',
-    component: Offers
-  },
-  {
     path: '/profile',
     name: 'Profile',
     component: Profile
@@ -63,23 +52,40 @@ const routes = [
     component: Bars
   },
   {
-    path: '/bar/:id/offers',
-    name: 'barOffers',
-    component: BarOffers
+    path: '/offers',
+    name: 'Offers',
+    component: Offers
   },
   {
     path: '/bar/:id/reservas',
     name: 'barReservas',
     component: BarReservas
-  }
+  },
+  {
+    path: '/bar/:id/offers',
+    name: 'barOffers',
+    component: BarOffers
+  },
+  {
+    path: '/cookies',
+    name: 'Cookies',
+    component: Cookies
+  },
+  // {
+  //   path: '/floatButtons',
+  //   name: 'floatButtons',
+  //   component: FloatButtons
+  // },
+  // {
+  //   path: '/',
+  //   name: 'DropDown',
+  //   component: DropDown
+  // },
 ]
 
 const router = new VueRouter({
     routes,
     mode: 'history'
 })
-
-
-
 
 export default router

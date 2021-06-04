@@ -1,30 +1,31 @@
 <template>
   <div class="offers" id="offers">
-    <div>
-        <OfferCard></OfferCard>
-    </div>
-    <div>
+    <Header></Header>
+    <OfferCard></OfferCard>
+    <!-- <div>
         <input type="range" min="0" max="100" @input="addEvent" />
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
-// @ is an alias to /src
+
+import Header from '@/components/Header.vue'
 import OfferCard from '@/components/OfferCard.vue' 
 
 export default {
   name: 'offers',
   components: {
+    Header,
     OfferCard
   },
   data(){
       return {
-          valor: 1,
-          events: [],
+          // valor: 1,
+          events: []
       }
   },
   created() {
-    this.$store.dispatch('fetchOffers', this.data.valor)
+    this.$store.dispatch('fetchOffers')
   },
 }
 </script>
