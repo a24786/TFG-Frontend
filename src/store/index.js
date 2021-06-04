@@ -21,6 +21,7 @@ export default new Vuex.Store({
         markers: [],
     },
     actions: {
+        // Fetch para detectar existe el usuario y loggearte
         loginUser(context, user) {
             context.state.user = this.user
             fetch(BASE_URL + `api/users/sign-in`, {
@@ -49,6 +50,7 @@ export default new Vuex.Store({
                     console.log(error)
                 })
         },
+        //Fetch para crear un nuevo usuario
         registerUser(context, user) {
             context.state.user = this.user
             return fetch(BASE_URL + `api/users/sign-up`, {
@@ -68,6 +70,7 @@ export default new Vuex.Store({
                     return true;
                 })
         },
+        //Funcion para mostrar mensaje si las contraseñas no coinciden
         errorPwd() {
             var aviso = `<p class="avisoPwd">Las contraseñas no coinciden</p>`
             document.querySelector(".confPwd").insertAdjacentHTML("afterend", aviso);
@@ -88,6 +91,7 @@ export default new Vuex.Store({
                     context.commit('offersList', response)
                 })
         },
+        //Funcion para localizar al usuario
         getPosition(context) {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
@@ -101,18 +105,22 @@ export default new Vuex.Store({
                 context.dispatch('fetchBars', 10)
             }
         },
-        addEvent({ type, target }) {
-            const event = {
-                type,
-                target: {
-                    value: target.value
-                }
-            }
-            this.events.push(event)
-        },
-        eventText(e) {
-            return `${e.type}: ${e.target.value}`
-        },
+
+        //Funcion para
+        // addEvent({ type, target }) {
+        //     const event = {
+        //         type,
+        //         target: {
+        //             value: target.value
+        //         }
+        //     }
+        //     this.events.push(event)
+        // },
+        // eventText(e) {
+        //     return `${e.type}: ${e.target.value}`
+        // },
+
+        //Fetch cargar los datos del usuario
         loadUserData(context, token) {
             fetch(BASE_URL + `api/users?user=${token}`)
                 .then(response => response.json())
@@ -121,6 +129,7 @@ export default new Vuex.Store({
                     return data
                 })
         },
+        //Fecth para sacar la informacion de los bares
         fetchBars(context, distancia) {
             let coord = this.getters.getCoodinates
             let url = BASE_URL + `api/bars/coordinates?distance=${distancia}&latitude=${coord.lat}&length=${coord.lng}`
@@ -130,12 +139,10 @@ export default new Vuex.Store({
             .then(dataBar => {
                 let markers = []
                 dataBar.forEach(bar => {
-                    
                     markers.push({
                         id: bar.idbar,
                         address: bar.address,
-                        position: {lat: bar.latitude,
-                            lng: bar.length},
+                        position: {lat: bar.latitude, lng: bar.length},
                         title: bar.name,
                         images: bar.barImages
                     })
@@ -144,6 +151,7 @@ export default new Vuex.Store({
             context.commit('markers', markers)
             })
         },
+        //Fetch para la cookie del usuario
         fetchUserToken(context) {
             var dc = document.cookie;
             var prefix = "Login=";

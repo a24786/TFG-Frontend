@@ -2,7 +2,7 @@
     <div class="main-content">  
         <Home></Home>
         <router-link to="/bars"><ExploreButton></ExploreButton></router-link>
-        <router-link to="/bars"><OffersButton></OffersButton></router-link>
+        <router-link to="/offers"><OffersButton></OffersButton></router-link>
   </div>
    
 </template>

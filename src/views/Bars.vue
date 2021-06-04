@@ -1,20 +1,21 @@
 <template>
   <div class="bars" id="bars">
-    <div>
+        <Header></Header>
         <BarCard></BarCard>
-    </div>
     <!-- <div>
         <input type="range" min="0" max="100" @input="addEvent" />
     </div> -->
   </div>
 </template>
 <script>
-// @ is an alias to /src
+
+import Header from '@/components/Header.vue'
 import BarCard from '@/components/BarCard.vue' 
 
 export default {
   name: 'bars',
   components: {
+    Header,
     BarCard
   },
   created() {
