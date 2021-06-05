@@ -16,7 +16,10 @@
         <div class="titleAndDropdown">
             <img class="profileImg" :src="man" alt="%"/>
           <h1 class="userReservationsTitle">Tus reservas</h1>
-          <input class="dropDownMenu">
+          <select class="dropDownMenu">
+            <option>Activas</option>
+            <option>Todas</option>
+          </select>
         </div>
         <ReservationsList></ReservationsList>
       </div>

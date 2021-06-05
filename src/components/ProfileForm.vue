@@ -5,11 +5,11 @@
         <div class="perfilImageOptions">
           <img class="profileImage" :src="man" alt="%" />
           <div class="buttonsMenu1">
-            <button class="button5">Subir foto</button>
-            <button class="button4">Eliminar foto</button>
+            <!-- <button class="button5">Subir foto</button>
+            <button class="button4">Eliminar foto</button> -->
           </div>
         </div>
-        <div class="register_form2">
+        <form class="register_form2">
           <h3 class="input-titles">Nombre</h3>
           <input type="text" name="name" placeholder="Nombre" v-model="name" />
           <h3 class="input-titles">Apellido</h3>
@@ -34,15 +34,8 @@
             placeholder="E-mail"
             v-model="email"
           />
-          <h3 class="input-titles">Contraseña</h3>
-          <input
-            type="password"
-            name="password"
-            placeholder="Contraseña"
-            v-model="password"
-          />
-          <button class="buttonProfile3">Editar perfil</button>
-        </div>
+          <button type="submit" class="buttonProfile3">Editar perfil</button>
+        </form>
       </div>
     </div>
   </div>
@@ -53,21 +46,15 @@
 import man from "@/assets/man.svg";
 export default {
   name: "ProfileForm",
-  beforeCreate() {
-    this.$store.dispatch("loadUserData", this.$store.state.userToken)
-      // .then((e) => {
-      //   this.data = e;
-      // });
-  },
-  mounted() {
-    this.$store.dispatch("loadUserData", this.$store.state.userToken)
-    console.log("UPDATED");
-    console.log(this.$store.state.userToken);
-    console.log(this.$store.state.user);
-    this.name = this.$store.state.user.name;
-    this.phoneNumber = this.$store.state.user.phoneNumber;
-    this.lastName = this.$store.state.user.lastName;
-    this.email = this.$store.state.user.email;
+  created(){
+     this.$store.dispatch("loadUserData", this.$store.state.userToken).then((e)=>{
+      console.log(e)
+      console.log('asdasd')
+      this.name = this.$store.state.user.name;
+      this.phoneNumber = this.$store.state.user.phoneNumber;
+      this.lastName = this.$store.state.user.lastName;
+      this.email = this.$store.state.user.email;
+    })
   },
   data() {
     return {
@@ -82,9 +69,30 @@ export default {
     };
   },
   methods: {
-    submit() {},
-  },
-};
+      submit(e) {
+        // fetch(this.$store.BASE_URL+'api/reservations'?current=true, {
+        // method: 'PUT',
+        //               headers: {
+        //                   'Content-Type': 'application/json',
+        //               },
+        //               body: JSON.stringify(bar),
+        //           })
+        //           .then(response => response.json())
+        //           .then(data => {
+        //               console.log('Success:', data);
+        //               window.location = "/admin/home"
+        //           })
+        //           .catch((error) => {
+        //               console.error('Error:', error);
+        //           });
+      
+        //   }
+        e.preventDefault();
+        console.log('asadsds');
+        
+    },
+  }
+}
 </script>
 <style>
 .register_form {

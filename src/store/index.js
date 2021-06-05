@@ -9,7 +9,8 @@ const BASE_URL = "http://gotheretfg.azurewebsites.net/"
 
 export default new Vuex.Store({
     state: {
-        userReservations:[],
+        BASE_URL: BASE_URL,
+        userReservations: [],
         user: {},
         offers: [],
         bars: [],
@@ -75,9 +76,9 @@ export default new Vuex.Store({
             document.querySelector(".confPwd").insertAdjacentHTML("afterend", aviso);
         },
         //Fetch para sacar las reservas de un usuario / falta filtrar por ACTIVAS O NO
-        getReservations(state){
+        getReservations(state) {
             // fetch(BASE_URL + 'api/reservations/' + this.$store.state.userToken)
-            fetch(BASE_URL + 'api/reservations/' + '0e21d542-26c2-4d43-8c82-a8697e8943c3')
+            fetch(BASE_URL + 'api/reservations/' + this.state.userToken)
                 .then(response => response.json())
                 .then(data => {
                     state.commit('userReservations', data)
@@ -133,23 +134,22 @@ export default new Vuex.Store({
         fetchBars(context, distancia) {
             let coord = this.getters.getCoodinates
             let url = BASE_URL + `api/bars/coordinates?distance=${distancia}&latitude=${coord.lat}&length=${coord.lng}`
-            fetch(url, { 
-            })
-            .then(response => response.json())
-            .then(dataBar => {
-                let markers = []
-                dataBar.forEach(bar => {
-                    markers.push({
-                        id: bar.idbar,
-                        address: bar.address,
-                        position: {lat: bar.latitude, lng: bar.length},
-                        title: bar.name,
-                        images: bar.barImages
+            fetch(url, {})
+                .then(response => response.json())
+                .then(dataBar => {
+                    let markers = []
+                    dataBar.forEach(bar => {
+                        markers.push({
+                            id: bar.idbar,
+                            address: bar.address,
+                            position: { lat: bar.latitude, lng: bar.length },
+                            title: bar.name,
+                            images: bar.barImages
+                        })
                     })
+                    context.commit('barsList', dataBar)
+                    context.commit('markers', markers)
                 })
-            context.commit('barsList', dataBar)
-            context.commit('markers', markers)
-            })
         },
         //Fetch para la cookie del usuario
         fetchUserToken(context) {
@@ -172,7 +172,7 @@ export default new Vuex.Store({
         }
     },
     mutations: {
-        userReservations(context, data){
+        userReservations(context, data) {
             this.state.userReservations = data
         },
         // fetchRegisterUsers(state, data){
@@ -184,7 +184,7 @@ export default new Vuex.Store({
         barsList(state, dataBar) {
             state.bars = dataBar
         },
-        markers(context, markers){
+        markers(context, markers) {
             this.state.markers = markers;
         },
         //Saco las coordeanadas
@@ -201,9 +201,9 @@ export default new Vuex.Store({
     },
     modules: {},
     getters: {
-        getCoodinates(state){
-           return {lat:  state.latitude , lng: state.longitude}
+        getCoodinates(state) {
+            return { lat: state.latitude, lng: state.longitude }
         }
-     }
+    }
 
 })
