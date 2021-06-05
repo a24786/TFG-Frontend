@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div class="headerBarDet" v-for="item in $store.state.bars" :key="item.idbar"
-    >
+    <div class="headerBarDet" >
       <div class="banner_bar">
         <img src="../assets/cafe_croissant.jpg">
       </div>
@@ -12,11 +11,11 @@
 
       <div class="infoBar">
         <div class="difuminado_bar">
-          <h3>{{item.name}}</h3>
+          <h3></h3>
           <div class="back_difuminado_bar trans"></div>
         </div>
-        <p class="direccion_bar">{{item.address}}</p>
-        <div><img :src="telefono">{{item.phone}}</div>
+        <p class="direccion_bar"></p>
+        <div><img :src="telefono">{{$store.state.bar.phone}}</div>
       </div>
 
     </div>
@@ -31,8 +30,23 @@ export default {
     msg: String
   },    
   data() {
-    return { telefono: telefono};
+    return { 
+      telefono: telefono,
+      name: "",
+      lastName: "",
+      email: "",
+      password: "",
+      phoneNumber: "",
+      userToken: "",
+      data: null,
+      };
   },
+  created(){
+    this.$store.dispatch("loadBarData")
+  },
+  methods: {
+
+  }
 }
 </script>
 <style> 

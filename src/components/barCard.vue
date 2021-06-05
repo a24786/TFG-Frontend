@@ -37,6 +37,7 @@ export default {
     display: grid;
     width: 100%;
     height: 100%;
+    margin-top: 5%;
 }
 
 .tarjetaBar {

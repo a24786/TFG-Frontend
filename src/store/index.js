@@ -39,7 +39,7 @@ export default new Vuex.Store({
                         let expires = "expires=" + d.toUTCString();
                         let cookie = data.name + "=" + data.value + ";" + expires + ";path=/";
                         document.cookie = cookie
-                        router.push("profile")
+                        router.push("/")
                     } else {
                         console.log('Error en las credenciales de inicio de sesión')
                         return false
@@ -130,6 +130,15 @@ export default new Vuex.Store({
                     return data
                 })
         },
+        //Fetch cargar los datos del bar
+        loadBarData(context, id) {
+            fetch(BASE_URL + `api/bars/${id}`)
+                .then(response => response.json())
+                .then(data => {
+                    context.commit('barData', data)
+                    return data
+                })
+        },
         //Fecth para sacar la informacion de los bares
         fetchBars(context, distancia) {
             let coord = this.getters.getCoodinates
@@ -197,6 +206,9 @@ export default new Vuex.Store({
         },
         userData(state, user) {
             this.state.user = user
+        },
+        barData(state, bar) {
+            this.state.bar = bar
         }
     },
     modules: {},
