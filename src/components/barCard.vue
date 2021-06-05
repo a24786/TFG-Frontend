@@ -3,10 +3,10 @@
     <!-- <div>{{$store.state.bars}}</div> -->
     <div class="tarjetaBar" v-for="item in $store.state.bars" :key="item.idbar">
       <div class="banner_bar">
-        <img src="../assets/cafe_croissant.jpg">
+        <img :src="'https://gotherestorage.blob.core.windows.net'+item.barImages[0].imgUrl">
       </div>
       <div class="icono_bar">
-        <img src="../assets/cafe_croissant.jpg">
+        <img :src="'https://gotherestorage.blob.core.windows.net'+item.barImages[1].imgUrl">
       </div>
       <div class="infoBar">
         <div class="difuminado_bar">
