@@ -8,7 +8,7 @@
         <div class="bar-title">{{marker.title}}</div>
         <div>{{marker.address}}</div>
         <hr>
-        <router-link class="resevation-a" :to="{name: 'Reservas', params: { id:  marker.id}}">RESERVAR</router-link>
+        <router-link class="resevation-a" :to="{name: 'BarBookings', params: { id:  marker.id}}">RESERVAR</router-link>
     </div>
 </template>
 

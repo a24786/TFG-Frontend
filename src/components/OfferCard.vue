@@ -1,14 +1,15 @@
 <template>
   <div class="offerCard" >
-      <div class="tarjeta" v-for="item in $store.state.offers" :key="item.idOffer">
-        <img src="../assets/cafe_croissant.jpg">
-        <div class="infoOffer">
-            <div class="difuminado">
-              <h3>{{item.bar.name}}</h3>
-              <div class="back_difuminado trans"></div>
-            </div>
-            <p class="title_offer">{{item.offerTitle}}</p>
-            <p class="price">{{item.offerPrice}}€</p>
+    <div class="tarjeta" v-for="item in $store.state.offers" :key="item.idOffer">
+      <img src="../assets/cafe_croissant.jpg">
+      <div class="infoOffer">
+        <div class="difuminado">
+          <h3>{{item.bar.name}}</h3>
+          <div class="back_difuminado trans"></div>
+        </div>
+        <p class="title_offer">{{item.offerTitle}}</p>
+        <p class="price">{{item.offerPrice}}€</p>
+        <button class="redeemOffer">Canjear</button>
       </div> 
     </div>
   </div>
@@ -97,6 +98,13 @@ export default {
 
 .trans {
     opacity: 0.3;
+}
+
+.redeemOffer{
+  background-color: #FEA701;
+  border-radius: 20%;
+  color:white;
+  border: 0px;
 }
 
 @media only screen and (max-width: 1440px) {
