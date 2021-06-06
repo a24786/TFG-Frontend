@@ -1,10 +1,9 @@
 <template>
   <div>
-      <img src="../assets/cafe_croissant.jpg">
+      <img :src="'https://gotherestorage.blob.core.windows.net'+Offer.offerImage">
       <div class="infoOffer">
         <div class="difuminado">
           <h3>{{Offer.bar.name}}</h3>
-          <div class="back_difuminado trans"></div>
         </div>
         <p class="title_offer">{{Offer.offerTitle}}</p>
         <p class="price">{{Offer.offerPrice}}€</p>

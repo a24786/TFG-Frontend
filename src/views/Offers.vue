@@ -2,6 +2,9 @@
   <div class="offers" id="offers">
     <Header></Header>
     <OfferCard></OfferCard>
+      <router-link to="/">
+        <BackButton></BackButton>
+      </router-link>
     <!-- <div>
         <input type="range" min="0" max="100" @input="addEvent" />
     </div> -->
@@ -11,12 +14,14 @@
 
 import Header from '@/components/Header.vue'
 import OfferCard from '@/components/OfferCard.vue' 
+import BackButton from '@/components/BackButton.vue'
 
 export default {
   name: 'offers',
   components: {
     Header,
-    OfferCard
+    OfferCard,
+    BackButton
   },
   // data(){
   //     return {

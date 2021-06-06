@@ -4,23 +4,19 @@
         <div class="modal-mask">
           <div class="modal-wrapper">
             <div class="modal-container">
-
-              <div class="modal-header">
-                <slot name="header">
-                  {{Offer.offerTitle}}
-                  
-                </slot>
-              </div>
-
-              <div class="modal-body">
-                <slot name="body">
-                  {{Code}}
-                </slot>
-              </div>
-
-              <button class="modal-default-button" @click="$emit('close')">
-                X
-              </button>
+                  <img :src="'https://gotherestorage.blob.core.windows.net'+Offer.offerImage">
+                  <div class="infoOfferModal">
+                    <div class="difuminado">
+                      <h3>{{Offer.bar.name}}</h3>
+                    </div>
+                    <p class="title_offerModal">{{Offer.offerTitle}}</p>
+                    <p class="priceModal">{{Offer.offerPrice}}€</p>
+                    <p class="redeemOfferModal">CODIGO: {{Code}}</p>
+                    <div class="adviseModal">
+                      <p>Debes enseñar este código en el bar para validarlo</p>
+                    </div>
+                  </div> 
+              <button class="modal-default-button" @click="$emit('close')">X</button>
             </div>
           </div>
         </div>
@@ -73,12 +69,12 @@ export default {
 }
 
 .modal-container {
-  width: 300px;
+  width: 600px;
+  height: 440px;
   margin: 0px auto;
-  padding: 20px 30px;
   background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+  border-radius: 40px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 33%);
   transition: all .3s ease;
   font-family: Helvetica, Arial, sans-serif;
 }
@@ -93,7 +89,15 @@ export default {
 }
 
 .modal-default-button {
-  float: right;
+  position: absolute;
+  top: 175px;
+  right: 32%;
+  color: white;
+  background: none;
+  border: none;
+  font-size: 30px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .modal-enter {
@@ -108,5 +112,66 @@ export default {
 .modal-leave-active .modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+
+.modal-container img {
+    width: 100%;
+    height: 150px!important;
+    border-radius: 38px 38px 0px 0px;
+    object-fit: cover;
+}
+
+.infoOfferModal h3 {
+    font-size: 42px!important;
+    margin-top: -65px!important;
+    margin-left: 25px;
+}
+
+.title_offerModal {
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    margin-top: -15px;
+}
+
+.priceModal {
+    color: #FEA701;
+    width: 90%;
+    font-size: 65px;
+    margin-top: 0%;
+    margin-left: 5%;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.redeemOfferModal {
+    background-color: #FEA701;
+    border-radius: 12px;
+    color: black;
+    border: 2px solid black;
+    height: 35px;
+    width: 60%;
+    margin-left: 20%;
+    font-weight: 600;
+    padding-top: 10px;
+    font-size: 25px;
+    margin-bottom: 0px;
+}
+
+.adviseModal {
+    font-size: 15px;
+}
+
+@media only screen and (max-width: 1440px) {
+  .back_difuminado {
+    height: 5px;
+  }
+  .infoOffer h3 {
+    top: 5%;
+  }
 }
 </style>
