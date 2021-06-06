@@ -36,6 +36,8 @@ export default {
     width: 100%;
     flex-wrap: wrap;
     height: 100%;
+    margin-top: 50px;
+    justify-content: space-evenly;
 }
 
 .tarjeta {
@@ -45,6 +47,7 @@ export default {
     border-radius: 38px;
     box-shadow: 0px 5px 10px 0px grey;
     margin-left: 5%;
+    margin-right: 5%;
     margin-bottom: 5%;
 }
 
@@ -85,24 +88,15 @@ export default {
     margin-bottom: 5%;
 }
 
-.back_difuminado {
-    height: 10px;
-    background-color: black;
-    padding: 10px;
-    box-shadow: 0.5px -4px 5px 1px black;
-    margin-top: -69px;
-    z-index: 1;
-}
-
-.trans {
-    opacity: 0.3;
-}
-
 .redeemOffer{
   background-color: #FEA701;
-  border-radius: 20%;
-  color:white;
+  border-radius: 20px;
+  color: white;
   border: 0px;
+  width: 50%;
+  height: 30px;
+  margin-bottom: 20px;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 1440px) {

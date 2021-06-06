@@ -34,10 +34,11 @@ export default {
 </script>
 <style> 
 .barCards {
-    display: grid;
-    width: 100%;
-    height: 100%;
-    margin-top: 5%;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  padding-top: 5%;
+  background-color: #e6e6e6;
 }
 
 .tarjetaBar {
@@ -46,7 +47,7 @@ export default {
     background-color: white;
     border-radius: 30px 30px 0px 0px;
     box-shadow: 0px 30px 20px -30px grey;
-    margin-left: 5%;
+    margin-left: 25%;
     margin-bottom: 5%;
 }
 
