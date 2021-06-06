@@ -24,7 +24,7 @@
 </template>
 
 <script>
-
+import info from "@/assets/info.svg";
 export default {
  name: "resDetail",
   props: {
@@ -34,7 +34,8 @@ export default {
     return {
       table: {},
       selectedDate: {},
-      done: false
+      done: false,
+      info: info
     };
   },
   methods: {
