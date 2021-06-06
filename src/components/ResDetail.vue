@@ -2,7 +2,11 @@
   <div class="resDetail">
     <div class="infoReserva">
         <div class="titleOfferDet">
-            <h2>Mesa Interior 4 PAX.</h2>
+            <img class="svgInfo" :src="info" alt="%" />
+            <h2>
+                MESA INTERIOR | AFORO:
+                <!-- {{ item.scheduleTableReservation.table.capacity }} -->
+            </h2>
         </div>
         <p>Mesa para 4 personas, zona interior del bar al lado de la barra y el proyector. Con servicio en mesa gracias a nuestros camareros.</p>
         <input type="date" />
