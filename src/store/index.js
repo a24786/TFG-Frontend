@@ -89,10 +89,17 @@ export default new Vuex.Store({
         //     fetch(BASE_URL + `api/offers?latitude=${this.store.latitude}&length=${this.store.longitude}&distance=${distancia}`, {})
         //         .then(response => response.json())
         //         .then(response => {
-        //             context.commit('offersList', response)
+                    // context.commit('offersList', response)
         //         })
         // },
-
+        getBarReservations(state, info) {
+            // fetch(BASE_URL + 'api/reservations/' + this.$store.state.userToken)
+            return fetch(BASE_URL + `api/tables/${info.id}/${info.date}` )
+                .then(response => response.json())
+                .then(data => {
+                    return data;
+                });
+        },
         //Fecth para sacar la informacion de los bares
         fetchBars(context, distancia) {
             let coord = this.getters.getCoodinates
@@ -121,19 +128,16 @@ export default new Vuex.Store({
             fetch(url, {})
                 .then(response => response.json())
                 .then(dataOffer => {
-                    let markers = []
-                    dataOffer.forEach(offer => {
-                        markers.push({
-                            id: offer.idOffer,
-                            description: offer.offerDescription,
-                            position: { lat: offer.latitude, lng: offer.length },
-                            title: offer.offerTitle,
-                            price: offer.offerPrice
-                            // images: offer.barImages
-                        })
-                    })
                     context.commit('offersList', dataOffer)
-                    context.commit('markers', markers)
+                })
+        },
+
+        fetchOffersBar(context, id) {
+            let url = BASE_URL + `api/offers/bar/${id}`
+            fetch(url, {})
+                .then(response => response.json())
+                .then(dataOffer => {
+                    context.commit('offersList', dataOffer)
                 })
         },
         //Funcion para localizar al usuario
@@ -186,7 +190,7 @@ export default new Vuex.Store({
         },
         //Fetch cargar los datos del bar
         loadBarData(context, id) {
-            fetch(BASE_URL + `api/bars/${id}`)
+            return fetch(BASE_URL + `api/bars/${id}`)
                 .then(response => response.json())
                 .then(data => {
                     context.commit('barData', data)
