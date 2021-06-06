@@ -66,7 +66,7 @@ const routes = [
     component: BarBookings
   },
   {
-    path: '/bar/:id/reservasDet',
+    path: '/bar/:id/reservasDet/:idMesa',
     name: 'BarResDet',
     component: BarResDet
   },

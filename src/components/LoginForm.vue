@@ -11,7 +11,7 @@
         <button class="button2">Regístrate</button>
         </router-link>
       </div>
-      <div class="form">
+      <div class="logForm">
         <h2>¡Hola de nuevo!</h2>
         <div class="login_form">
           <input type="mail" name="email" placeholder="E-mail" v-model="email">
@@ -19,9 +19,9 @@
           <button class="button3" @click="submit()">Iniciar Sesión</button>
         </div>
       </div>
-      <div class="privacy_register">
+      <!-- <div class="privacy_register">
         <p>¿Aún no tienes cuenta propia? <router-link to="/register"><a class="create_account">Crea una cuenta</a></router-link></p>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -130,15 +130,16 @@ div#app {
     font-family: Roboto;
   }
   
-  .form h2 {
+  .logForm h2 {
     font-size: xx-large;
     text-align: left;
     color: black;
   }
   
-  .form {
-    padding-left: 9%;
-    padding-top: 5%;
+  .logForm {
+    width: 90%;
+    padding-left: 10%;
+    padding-top: 10%;
   }
   
   .login_form {
