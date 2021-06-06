@@ -40,6 +40,7 @@ export default {
 }
 .user-info-wrapper{
   width: 80%;
+  margin-left: 5%;
 }
 .profileReservas{
   padding-right: 5%;

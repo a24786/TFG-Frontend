@@ -1,7 +1,9 @@
 <template>
 <div>
     <HeaderBarDet></HeaderBarDet>
+    <div class="barOffersList">
     <Offer class="tarjeta" v-for="item in $store.state.offers" :key="item.idOffer" :Offer="item"></Offer>
+    </div>
   </div>
 </template>
 
@@ -20,5 +22,9 @@ export default {
 }
 </script>
 <style> 
-
+.barOffersList {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
 </style>
