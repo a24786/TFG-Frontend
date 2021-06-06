@@ -39,7 +39,7 @@ export default new Vuex.Store({
                         let expires = "expires=" + d.toUTCString();
                         let cookie = data.name + "=" + data.value + ";" + expires + ";path=/";
                         document.cookie = cookie
-                        router.push("profile")
+                        router.push("/")
                     } else {
                         console.log('Error en las credenciales de inicio de sesión')
                         return false
@@ -85,50 +85,20 @@ export default new Vuex.Store({
                 });
         },
         //Fetch para mostrar ofertas
-        fetchOffers(context, distancia) {
-            fetch(BASE_URL + `api/offers?latitude=${this.store.latitude}&length=${this.store.longitude}&distance=${distancia}`, {})
-                .then(response => response.json())
-                .then(response => {
-                    context.commit('offersList', response)
-                })
-        },
-        //Funcion para localizar al usuario
-        getPosition(context) {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            } else {
-                alert("Geolocation is not supported by this browser.");
-            }
-
-            function showPosition(position) {
-                let coordinates = { 'latitude': position.coords.latitude, 'longitude': position.coords.longitude }
-                context.commit('coords', coordinates)
-                context.dispatch('fetchBars', 10)
-            }
-        },
-
-        //Funcion para
-        // addEvent({ type, target }) {
-        //     const event = {
-        //         type,
-        //         target: {
-        //             value: target.value
-        //         }
-        //     }
-        //     this.events.push(event)
+        // fetchOffers1(context, distancia) {
+        //     fetch(BASE_URL + `api/offers?latitude=${this.store.latitude}&length=${this.store.longitude}&distance=${distancia}`, {})
+        //         .then(response => response.json())
+        //         .then(response => {
+                    // context.commit('offersList', response)
+        //         })
         // },
-        // eventText(e) {
-        //     return `${e.type}: ${e.target.value}`
-        // },
-
-        //Fetch cargar los datos del usuario
-        loadUserData(context, token) {
-            fetch(BASE_URL + `api/users?user=${token}`)
+        getBarReservations(state, info) {
+            // fetch(BASE_URL + 'api/reservations/' + this.$store.state.userToken)
+            return fetch(BASE_URL + `api/tables/${info.id}/${info.date}` )
                 .then(response => response.json())
                 .then(data => {
-                    context.commit('userData', data)
-                    return data
-                })
+                    return data;
+                });
         },
         //Fecth para sacar la informacion de los bares
         fetchBars(context, distancia) {
@@ -151,6 +121,83 @@ export default new Vuex.Store({
                     context.commit('markers', markers)
                 })
         },
+        //Fetch para mostrar las ofertas
+        fetchOffers(context, distancia) {
+            let coord = this.getters.getCoodinates
+            let url = BASE_URL + `api/offers?distance=${distancia}&latitude=${coord.lat}&length=${coord.lng}`
+            fetch(url, {})
+                .then(response => response.json())
+                .then(dataOffer => {
+                    context.commit('offersList', dataOffer)
+                })
+        },
+
+        fetchOffersBar(context, id) {
+            let url = BASE_URL + `api/offers/bar/${id}`
+            fetch(url, {})
+                .then(response => response.json())
+                .then(dataOffer => {
+                    context.commit('offersList', dataOffer)
+                })
+        },
+        //Funcion para localizar al usuario
+        getPosition(context) {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+
+            function showPosition(position) {
+                let coordinates = { 'latitude': position.coords.latitude, 'longitude': position.coords.longitude }
+                context.commit('coords', coordinates)
+                context.dispatch('fetchBars', 10)
+               
+            }
+        },
+        getOffer(context, offer) {
+            return context.dispatch('fetchUserToken').then((token) =>{
+                return context.dispatch('loadUserData', token).then((user) => {
+                let userOffer = {
+                    'offer': offer,
+                    'user': user
+                }
+                console.log(userOffer)
+                let url = BASE_URL + `api/userOffers`
+                return fetch(url, { method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userOffer)}
+                ).then(response => response.text())
+                    .then(data => {
+                        console.log(data)
+                        return data;
+                    })
+            })
+        })
+          
+        },
+        //Fetch cargar los datos del usuario
+        loadUserData(context, token) {
+            return fetch(BASE_URL + `api/users?user=${token}`)
+                .then(response => response.json())
+                .then(data => {
+                    context.commit('userData', data)
+                    return data
+                })
+        },
+        //Fetch cargar los datos del bar
+        loadBarData(context, id) {
+            return fetch(BASE_URL + `api/bars/${id}`)
+                .then(response => response.json())
+                .then(data => {
+                    context.commit('barData', data)
+                    return data
+                })
+        },
+        
         //Fetch para la cookie del usuario
         fetchUserToken(context) {
             var dc = document.cookie;
@@ -178,8 +225,8 @@ export default new Vuex.Store({
         // fetchRegisterUsers(state, data){
         //     state.users = data
         //   },
-        offersList(data) {
-            this.state.offers = data
+        offersList(state, dataOffer) {
+            state.offers = dataOffer
         },
         barsList(state, dataBar) {
             state.bars = dataBar
@@ -197,6 +244,9 @@ export default new Vuex.Store({
         },
         userData(state, user) {
             this.state.user = user
+        },
+        barData(state, bar) {
+            this.state.bar = bar
         }
     },
     modules: {},

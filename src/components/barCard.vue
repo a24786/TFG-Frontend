@@ -3,10 +3,10 @@
     <!-- <div>{{$store.state.bars}}</div> -->
     <div class="tarjetaBar" v-for="item in $store.state.bars" :key="item.idbar">
       <div class="banner_bar">
-        <img src="../assets/cafe_croissant.jpg">
+        <img :src="'https://gotherestorage.blob.core.windows.net'+item.barImages[0].imgUrl">
       </div>
       <div class="icono_bar">
-        <img src="../assets/cafe_croissant.jpg">
+        <img :src="'https://gotherestorage.blob.core.windows.net'+item.barImages[1].imgUrl">
       </div>
       <div class="infoBar">
         <div class="difuminado_bar">
@@ -34,9 +34,11 @@ export default {
 </script>
 <style> 
 .barCards {
-    display: grid;
-    width: 100%;
-    height: 100%;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  padding-top: 5%;
+  background-color: #e6e6e6;
 }
 
 .tarjetaBar {
@@ -45,7 +47,7 @@ export default {
     background-color: white;
     border-radius: 30px 30px 0px 0px;
     box-shadow: 0px 30px 20px -30px grey;
-    margin-left: 5%;
+    margin-left: 25%;
     margin-bottom: 5%;
 }
 

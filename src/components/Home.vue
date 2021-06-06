@@ -96,7 +96,7 @@ export default {
   },
    mounted() {
       //set bounds of the map
-      
+      this.$store.dispatch('getPosition')
      
     },
 methods:{
