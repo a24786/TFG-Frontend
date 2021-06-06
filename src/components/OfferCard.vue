@@ -1,39 +1,32 @@
 <template>
   <div class="offerCard" >
-    <div class="tarjeta" v-for="item in $store.state.offers" :key="item.idOffer">
-      <img src="../assets/cafe_croissant.jpg">
-      <div class="infoOffer">
-        <div class="difuminado">
-          <h3>{{item.bar.name}}</h3>
-          <div class="back_difuminado trans"></div>
-        </div>
-        <p class="title_offer">{{item.offerTitle}}</p>
-        <p class="price">{{item.offerPrice}}€</p>
-        <button class="redeemOffer"  id="show-modal" @click="showModal = true">Canjear</button>
-      </div> 
-    </div>
-    <!-- <OfferModal></OfferModal> -->
+   
+      <Offer class="tarjeta" v-for="item in $store.state.offers" :key="item.idOffer" :Offer="item"></Offer>
   </div>
 </template>
 
 <script>
-// import OfferModal from "@/components/OfferModal.vue";
+import Offer from "@/components/Offer.vue";
 export default {
   name: 'offerCard',
   props: {
     msg: String
   },
-  components: {
-    // OfferModal,
-  },
   data() {
-    return{
+     return{
+      showModal: false,
     }
+  },
+  components: {
+    Offer,
   },
   methods : {
     submit(){   
       }
     },
+    showModal(){
+
+    }
     
 }
 </script>
