@@ -15,7 +15,7 @@
           <div class="back_difuminado_bar trans"></div>
         </div>
         <p class="direccion_bar"></p>
-        <div><img :src="telefono">{{$store.state.bar.phone}}</div>
+        <!-- <div><img :src="telefono">{{$store.state.bar.phone}}</div> -->
       </div>
 
     </div>

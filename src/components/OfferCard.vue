@@ -9,17 +9,22 @@
         </div>
         <p class="title_offer">{{item.offerTitle}}</p>
         <p class="price">{{item.offerPrice}}€</p>
-        <button class="redeemOffer">Canjear</button>
+        <button class="redeemOffer"  id="show-modal" @click="showModal = true">Canjear</button>
       </div> 
     </div>
+    <!-- <OfferModal></OfferModal> -->
   </div>
 </template>
 
 <script>
+// import OfferModal from "@/components/OfferModal.vue";
 export default {
   name: 'offerCard',
   props: {
     msg: String
+  },
+  components: {
+    // OfferModal,
   },
   data() {
     return{

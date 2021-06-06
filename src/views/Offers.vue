@@ -18,12 +18,12 @@ export default {
     Header,
     OfferCard
   },
-  data(){
-      return {
-          // valor: 1,
-          events: []
-      }
-  },
+  // data(){
+  //     return {
+  //         // valor: 1,
+  //         // events: []
+  //     }
+  // },
   created() {
     this.$store.dispatch('fetchOffers')
   },

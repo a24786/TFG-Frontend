@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div
-      class="barInfoCard"
-    >
+    <div class="barInfoCard">
       <input type="date" v-model="date"/>
       <div>
         <HeaderBarDet></HeaderBarDet>
@@ -43,6 +41,11 @@
 <script>
 import HeaderBarDet from "@/components/HeaderBarDet.vue";
 
+import home from "../assets/home.svg";
+import user from "@/assets/user.svg";
+import stopwatch from "@/assets/stopwatch.svg";
+import info from "@/assets/info.svg";
+
 export default {
   name: "barOffers",
   components: {
@@ -53,7 +56,11 @@ export default {
   },
   data() {
     return{
-      date: new Date().toISOString().substr(0, 10) // Coge la fecha de hoy por defecto
+      date: new Date().toISOString().substr(0, 10), // Coge la fecha de hoy por defecto
+      user: user,
+      home: home,
+      stopwatch: stopwatch,
+      info: info,
     } 
   }
 };
