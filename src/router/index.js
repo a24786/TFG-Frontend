@@ -14,13 +14,8 @@ import BarOffers from '../views/BarOffers.vue'
 import BarBookings from '../views/BarBookings.vue'
 import BarResDet from '../views/BarResDet.vue'
 
-// import BarOffers from '../components/BarOffers.vue'
-// import BarReservas from '../components/BarReservas.vue'
-
 import Cookies from '../views/Cookies.vue'
 
-// import store from '../store/index.js'
-// import FloatButtons from '../views/FloatButtons.vue'
 
 Vue.use(VueRouter)
 
@@ -80,32 +75,10 @@ const routes = [
     name: 'Cookies',
     component: Cookies
   },
-  // {
-  //   path: '/barOffers',
-  //   name: 'BarOffers',
-  //   component: BarOffers1
-  // },
-  // {
-  //   path: '/barBookings',
-  //   name: 'BarBookings',
-  //   component: BarBookings
-  // }
-
-  // {
-  //   path: '/floatButtons',
-  //   name: 'floatButtons',
-  //   component: FloatButtons
-  // },
-  // {
-  //   path: '/',
-  //   name: 'DropDown',
-  //   component: DropDown
-  // },
 ]
 
 const router = new VueRouter({
     routes,
-    mode: 'history'
 })
 
 export default router
