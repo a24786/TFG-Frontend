@@ -1,6 +1,6 @@
 <template>
   <div class="registerForm1">
-    <div class="block2">
+    <div class="block2Profile">
       <div class="formProfile">
         <div class="perfilImageOptions">
           <img class="profileImage" :src="man" alt="%" />
@@ -95,6 +95,10 @@ export default {
 }
 </script>
 <style>
+.block2Profile{
+  width: 85%;
+  font-family: 'Roboto', sans-serif;
+}
 .register_form {
   padding-left: 9%;
   padding-top: 5%;

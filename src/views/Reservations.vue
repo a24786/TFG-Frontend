@@ -94,5 +94,6 @@ export default {
 .userReservationsTitle{
     margin-left:30px;
     margin-top: 0%;
+    color: black;
 }
 </style>

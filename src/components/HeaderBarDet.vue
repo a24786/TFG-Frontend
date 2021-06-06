@@ -1,22 +1,22 @@
 <template>
   <div>
     <div class="headerBarDet" >
-      <div class="banner_bar">
-        <img src="../assets/cafe_croissant.jpg">
+      <div class="banner_barDet">
+        <img :src="'https://gotherestorage.blob.core.windows.net'+bar.barImages[0].imgUrl">
       </div>
 
-      <div class="icono_bar">
-        <img src="../assets/cafe_croissant.jpg">
+      <div class="icono_barDet">
+        <img :src="'https://gotherestorage.blob.core.windows.net'+bar.barImages[1].imgUrl">
       </div>
 
-      <div class="infoBar">
-        <div class="difuminado_bar">
-          <h3></h3>
-          <div class="back_difuminado_bar trans"></div>
+      <div class="infoBarDet">
+        <div class="titleBarDet">
+          <h3>{{bar.name}}</h3>
         </div>
-        <p class="direccion_bar"></p>
-         {{bar.name}}
-        <!-- <div><img :src="telefono">{{$store.state.bar.phone}}</div> -->
+        <p class="direccion_barDet">
+          {{bar.description}}
+        </p>
+        <div class="barPhone"><img :src="telefono">{{$store.state.bar.phone}}</div>
       </div>
 
     </div>
@@ -54,5 +54,49 @@ export default {
 }
 </script>
 <style> 
-
+.headerBarDet {
+    width: 100%;
+    height: 175px;
+    margin-bottom: 8%;
+} 
+.banner_barDet img {
+    width: 100%;
+    height: 175px;
+    object-fit: cover;
+}
+.icono_barDet img {
+    margin-left: -68%;
+    margin-top: -7%;
+    width: 200px;
+    height: 180px;
+    border-radius: 50%;
+}
+.infoBarDet {
+    color: black;
+}
+.titleBarDet h3 {
+    color: white;
+    font-size: 50px;
+    position: absolute;
+    top: 18%;
+    left: 26%;
+}
+.direccion_barDet {
+    position: absolute;
+    left: 26%;
+    top: 36%;
+    font-size: 20px;
+    width: 20%;
+    text-align: initial;
+    color: #828282;
+    font-family: 'Roboto';
+}
+.barPhone {
+    position: absolute;
+    right: 20%;
+    top: 40%;
+    font-weight: 600;
+    font-family: 'Roboto';
+    font-size: 22px;
+}
 </style>

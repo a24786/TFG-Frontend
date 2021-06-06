@@ -69,6 +69,7 @@ export default {
 }
 
 .modal-container {
+  position: relative;
   width: 600px;
   height: 440px;
   margin: 0px auto;
@@ -90,8 +91,8 @@ export default {
 
 .modal-default-button {
   position: absolute;
-  top: 175px;
-  right: 32%;
+  top: 20px;
+  right: 20px;
   color: white;
   background: none;
   border: none;

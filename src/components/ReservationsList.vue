@@ -115,6 +115,7 @@ export default {
   border: solid silver 1px;
   border-radius: 4px;
   margin-bottom: 10px;
+  color: black;
 }
 .barName {
   text-align: right;

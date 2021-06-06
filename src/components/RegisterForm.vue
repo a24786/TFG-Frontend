@@ -11,7 +11,7 @@
         </router-link>
         <button class="buttonRegister5">Regístrate</button>
       </div>
-      <div class="form">
+      <div class="regForm">
         <h2>Registro de usuario</h2>
         <form class="register_form1" @submit.prevent="submit">
           <input
@@ -59,10 +59,10 @@
           Clicando en "Reqistrarse" acepta nuestras <a class="tos_pol">TOS</a> y
           <a class="tos_pol">Politicas de Privacidad</a>
         </p>
-        <p>
+        <!-- <p>
           ¿Ya tienes cuenta propia?
           <router-link to="/login"><a>Inicia Sesión</a></router-link>
-        </p>
+        </p> -->
       </div>
     </div>
   </div>
@@ -148,7 +148,7 @@ body {
 }
   
 .block2 {
-    width: 100%;
+    width: 50%;
     font-family: 'Roboto', sans-serif;
 }
   
@@ -198,13 +198,13 @@ button.buttonRegister4 {
     font-family: Roboto;
 }
   
-.form h2 {
+.regForm h2 {
     font-size: xx-large;
     text-align: left;
     color: black;
 }
   
-.form {
+.regForm {
     padding-left: 9%;
     padding-top: 5%;
 }

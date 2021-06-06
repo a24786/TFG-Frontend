@@ -19,6 +19,7 @@ export default new Vuex.Store({
         latitude: 0,
         userToken: '',
         markers: [],
+        barTables: []
     },
     actions: {
         // Fetch para detectar existe el usuario y loggearte
@@ -97,6 +98,7 @@ export default new Vuex.Store({
             return fetch(BASE_URL + `api/tables/${info.id}/${info.date}` )
                 .then(response => response.json())
                 .then(data => {
+                    state.commit('barTables',data)
                     return data;
                 });
         },
@@ -131,7 +133,7 @@ export default new Vuex.Store({
                     context.commit('offersList', dataOffer)
                 })
         },
-
+        //Fetch que muestra las ofertas de un bar
         fetchOffersBar(context, id) {
             let url = BASE_URL + `api/offers/bar/${id}`
             fetch(url, {})
@@ -139,6 +141,46 @@ export default new Vuex.Store({
                 .then(dataOffer => {
                     context.commit('offersList', dataOffer)
                 })
+        },
+        //Fetch que muestra el detalle de una reserva
+        fetchTableDetail(context, idMesa) {
+            let url = BASE_URL + `api/tables/${idMesa}/table`
+            fetch(url, {})
+                .then(response => response.json())
+                .then(dataTable => {
+                    context.commit('tableDet', dataTable)
+                })
+        },
+        newReservation(context, idDate){
+            return context.dispatch('fetchUserToken').then((token) =>{
+            return context.dispatch('loadUserData', token).then((user) => {
+
+                var today = new Date();
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                var yyyy = today.getFullYear();
+
+                today = yyyy + '-' + mm + '-' + dd;
+                
+                let schedule = {
+                    reservationDate:String(today),
+                    scheduleTableReservation:{'idScheduleTableReservation':idDate},
+                    'user':{idUser:user.idUser}
+                }
+                console.log(schedule)
+                let url = BASE_URL + `api/reservations/new`
+                return fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(schedule),})
+                    .then(response => response.json())
+                    .then(dataTable => {
+                        return dataTable
+                    })
+            })})
         },
         //Funcion para localizar al usuario
         getPosition(context) {
@@ -231,8 +273,14 @@ export default new Vuex.Store({
         barsList(state, dataBar) {
             state.bars = dataBar
         },
+        tableDet(state, dataTable) {
+            state.bars = dataTable
+        },
         markers(context, markers) {
             this.state.markers = markers;
+        },
+        barTables(state, barTables) {
+            state.barTables = barTables
         },
         //Saco las coordeanadas
         coords(context, coordenadas) {
