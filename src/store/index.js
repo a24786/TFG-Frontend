@@ -4,7 +4,7 @@ import router from '../router/index.js'
 
 Vue.use(Vuex)
 
-const BASE_URL = "http://gotheretfg.azurewebsites.net/"
+const BASE_URL = "https://gotheretfg.azurewebsites.net/"
     // const BASE_URL = "http://localhost:8080/"
 
 export default new Vuex.Store({
