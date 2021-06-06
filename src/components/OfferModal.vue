@@ -1,6 +1,5 @@
 <template>
   <div class="offerModal" >
-    <script type="text/x-template" id="modal-template">
       <transition name="modal">
         <div class="modal-mask">
           <div class="modal-wrapper">
@@ -8,13 +7,14 @@
 
               <div class="modal-header">
                 <slot name="header">
-                  default header
+                  {{Offer.offerTitle}}
+                  
                 </slot>
               </div>
 
               <div class="modal-body">
                 <slot name="body">
-                  default body
+                  {{Code}}
                 </slot>
               </div>
 
@@ -25,16 +25,23 @@
           </div>
         </div>
       </transition>
-    </script>
   </div>
 </template>
 
 <script>
 export default {
   name: 'offerModal',
-  props: {
-    msg: String
-  },
+     props: {
+        Offer: {
+        type: Object,
+        required: true
+        },
+         Code: {
+        type: String,
+        required: true
+        },
+
+    },
   data() {
     return{
       showModal: false,
