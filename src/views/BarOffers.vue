@@ -30,6 +30,7 @@ export default {
   },
   beforeMount() {
     this.urlBar = this.$route.params.id
+    this.$store.dispatch('fetchOffersBar', this.urlBar)
   }
 }
 </script>

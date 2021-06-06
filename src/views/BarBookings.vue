@@ -27,7 +27,7 @@ export default {
   },
   data(){
     return{
-      urlBar: null
+      urlBar: null,
     }
   },
   created() {

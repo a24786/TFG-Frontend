@@ -15,6 +15,7 @@
           <div class="back_difuminado_bar trans"></div>
         </div>
         <p class="direccion_bar"></p>
+         {{bar.name}}
         <!-- <div><img :src="telefono">{{$store.state.bar.phone}}</div> -->
       </div>
 
@@ -39,10 +40,13 @@ export default {
       phoneNumber: "",
       userToken: "",
       data: null,
+      bar: {}
       };
   },
   created(){
-    this.$store.dispatch("loadBarData")
+    this.$store.dispatch("loadBarData", this.$route.params.id ).then((data) =>{
+      this.bar =  data
+    })
   },
   methods: {
 
