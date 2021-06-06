@@ -117,7 +117,7 @@ export default new Vuex.Store({
         //Fetch para mostrar las ofertas
         fetchOffers(context, distancia) {
             let coord = this.getters.getCoodinates
-            let url = BASE_URL + `api/offers/coordinates?distance=${distancia}&latitude=${coord.lat}&length=${coord.lng}`
+            let url = BASE_URL + `api/offers?distance=${distancia}&latitude=${coord.lat}&length=${coord.lng}`
             fetch(url, {})
                 .then(response => response.json())
                 .then(dataOffer => {
@@ -132,7 +132,7 @@ export default new Vuex.Store({
                             // images: offer.barImages
                         })
                     })
-                    context.commit('offerssList', dataOffer)
+                    context.commit('offersList', dataOffer)
                     context.commit('markers', markers)
                 })
         },
@@ -148,6 +148,7 @@ export default new Vuex.Store({
                 let coordinates = { 'latitude': position.coords.latitude, 'longitude': position.coords.longitude }
                 context.commit('coords', coordinates)
                 context.dispatch('fetchBars', 10)
+                context.dispatch('fetchOffers', 10)
             }
         },
         //Fetch cargar los datos del usuario

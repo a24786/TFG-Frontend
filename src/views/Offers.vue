@@ -25,7 +25,7 @@ export default {
   //     }
   // },
   created() {
-    this.$store.dispatch('fetchOffers')
+    this.$store.dispatch('fetchOffers', 5)
   },
 }
 </script>
