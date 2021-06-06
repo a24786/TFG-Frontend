@@ -8,31 +8,13 @@
       <hr>
         <div class="lista">
             <ol>
-              <li>250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.</li>
-              <li>250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.
-              </li><li>250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.
-              </li><li>250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.
-              </li><li>250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.
-              </li><li>250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.
-              </li><li>250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.
-              </li><li>250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.
-              </li><li>250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.
-              </li><li>250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.
-              </li><li>250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.
-              </li><li>250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.
-              </li><li>250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.
-              </li><li>250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.
-              </li><li>250 g de la mejor carne con lomo de vacuno*. Disfruta de la receta original: Pan con sabor a trufa, queso Cheddar.
-              </li>
+              <li>Hola</li>
             </ol>
         </div> 
     </pre>
   </div>
 </template>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pattaya&family=Roboto:wght@300;400;500&display=swap');
-</style>
+
 <script>
 export default {
   name: 'dropDown',

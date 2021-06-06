@@ -26,13 +26,10 @@
       </div>
       </div>
       <hr>
-      <img src="../assets/logo_white_large1.png">
+      <img id="img-footer" src="../assets/logo_white_large1.png">
   </div>
 </template>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pattaya&family=Roboto:wght@300;400;500&display=swap');
-</style>
+
 <script>
 export default {
   name: 'footerGeneral',
@@ -51,6 +48,9 @@ export default {
 }
 </script>
 <style> 
+.cookiesPrivacy h1 {
+    margin-top: 5%;
+}
 
 .footerGeneral{
   background-color: black;
@@ -63,7 +63,7 @@ export default {
   width: 90%;
 }
 
-img{
+#img-footer{
   width: 10%;
   margin: 80px 0px 80px 0px;
 }
@@ -71,10 +71,50 @@ img{
 .footerGeneral li {
     list-style: none;
     text-align: center;
+    line-height: 25px;
+}
+
+.footerGeneral li:hover {
+    cursor: pointer;
+    color: #FEA701;
 }
 
 .block_info{
   display: flex;
-  margin-left: 40%;
+  margin-left: 28.5%;
+  margin-top: 5%;
+}
+
+.block_info h4 {
+    text-decoration: underline;
+}
+
+.social_media {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.explore {
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.legal {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.social_media ul {
+    padding-left: 0px;
+}
+
+.explore ul {
+    padding-left: 0px;
+}
+
+.legal ul {
+    padding-left: 0px;
 }
 </style>
