@@ -148,12 +148,36 @@ export default new Vuex.Store({
                 let coordinates = { 'latitude': position.coords.latitude, 'longitude': position.coords.longitude }
                 context.commit('coords', coordinates)
                 context.dispatch('fetchBars', 10)
-                context.dispatch('fetchOffers', 10)
+               
             }
+        },
+        getOffer(context, offer) {
+            return context.dispatch('fetchUserToken').then((token) =>{
+                return context.dispatch('loadUserData', token).then((user) => {
+                let userOffer = {
+                    'offer': offer,
+                    'user': user
+                }
+                console.log(userOffer)
+                let url = BASE_URL + `api/userOffers`
+                return fetch(url, { method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userOffer)}
+                ).then(response => response.text())
+                    .then(data => {
+                        console.log(data)
+                        return data;
+                    })
+            })
+        })
+          
         },
         //Fetch cargar los datos del usuario
         loadUserData(context, token) {
-            fetch(BASE_URL + `api/users?user=${token}`)
+            return fetch(BASE_URL + `api/users?user=${token}`)
                 .then(response => response.json())
                 .then(data => {
                     context.commit('userData', data)
