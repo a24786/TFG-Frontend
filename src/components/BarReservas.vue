@@ -16,7 +16,7 @@
             </h2>
           </div>
           <div class="rightInfo" v-if="item.scheduleTableReservations.length!==0">
-            <router-link :to="{name: 'BarReserva', params: { id:  urlBar}}">
+            <router-link :to="{name: 'BarResDet', params: { id:  urlBar, idMesa: item.idTable}}">
               <img class="reserve_disponible" :src="resv_verde" alt="%" />
             </router-link>
           </div>
@@ -72,7 +72,8 @@ export default {
       info: info,
       resv_verde: resv_verde,
       resv_rojo: resv_rojo,
-      tables: []
+      tables: [],
+      urlBar: null,
     } 
   },
   mounted() {
@@ -80,6 +81,9 @@ export default {
     this.$store.dispatch("getBarReservations", { id: this.$route.params.id, date : this.formatDate(this.date)} ).then((res) => {
             this.tables = res
         })
+  },
+  beforeMount() {
+    this.urlBar = this.$route.params.id
   },
   methods:{
     getDate(){

@@ -5,14 +5,20 @@
             <img class="svgInfo" :src="info" alt="%" />
             <h2>
                 MESA INTERIOR | AFORO:
-                <!-- {{ item.scheduleTableReservation.table.capacity }} -->
+                {{ table.capacity }}
             </h2>
         </div>
-        <p>Mesa para 4 personas, zona interior del bar al lado de la barra y el proyector. Con servicio en mesa gracias a nuestros camareros.</p>
-        <input type="date" />
-        <div class="buttonRealizedRes">
-            <button>REALIZAR RESERVA</button>
+        <p>NUMERO DE MESA: {{ table.num }}</p>
+        <select v-model="selectedDate">
+          <option v-for="item in table.scheduleTableReservations" :key="item.idScheduleTableReservation" :value="item.idScheduleTableReservation">
+            {{item.schedule.checkInHour+" - "+item.schedule.checkOutHour}}
+          </option>
+        </select>
+        <div v-if="done" class="adviseRes">La reserva se ha realizado correctamente</div>
+        <div class="buttonRealizedRes" v-else>
+            <button @click="addReservation">REALIZAR RESERVA</button>
         </div>
+        
     </div>
   </div>
 </template>
@@ -25,13 +31,25 @@ export default {
     msg: String,
   },
   data() {
-    return {};
+    return {
+      table: {},
+      selectedDate: {},
+      done: false
+    };
   },
   methods: {
-    
+    addReservation(){
+      console.log(this.selectedDate)
+      this.$store.dispatch("newReservation",this.selectedDate).then((e)=>{
+        console.log(e)
+        if(e != isNaN){
+          this.done = true
+        }
+      })
+    }
   },
   created() {
-    
+    this.table = this.$store.state.barTables.find(e => e.idTable == this.$route.params.idMesa)
   },
 };
 
@@ -65,9 +83,15 @@ export default {
     background-color: #00D260;
     color: white;
     font-weight: 600;
+    cursor: pointer;
 }
 .buttonRealizedRes {
     text-align: center;
     margin-top: 2%;
+}
+.adviseRes {
+    margin: 20px;
+    color: green;
+    font-weight: 600;
 }
 </style>

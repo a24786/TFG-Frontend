@@ -44,7 +44,6 @@ export default {
 }
 
 .tablesComponent:hover{
-  background-color: #fdda9927;
   border: 2px solid #fea701;
 
 }
