@@ -9,10 +9,10 @@
 </style>
 <script>
 export default {
-  beforeCreate() {
+  beforeUpdate() {
    this.$store.dispatch('getPosition')
    this.$store.dispatch('fetchUserToken').then((e) => {
-     if(e==null){
+     if(e==null && this.$route.path !== '/login'){
        this.$router.push('login')
      }
    })
