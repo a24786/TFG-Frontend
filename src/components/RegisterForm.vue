@@ -14,43 +14,56 @@
       <div class="regForm">
         <h2>Registro de usuario</h2>
         <form class="register_form1" @submit.prevent="submit">
-          <input
-            type="text"
-            name="name"
-            placeholder="Nombre"
-            v-model="name"
-            required
-          />
-          <input
-            type="tel"
-            name="telephone"
-            placeholder="Telefono"
-            pattern="[0-9]{9}"
-            v-model="telephone"
-            required
-          />
-          <input
-            type="mail"
-            name="email"
-            placeholder="E-mail"
-            v-model="email"
-            required
-          />
-          <input
-            type="password"
-            name="password1"
-            placeholder="Contraseña"
-            v-model="password1"
-            required
-          />
-          <input
-            type="password"
-            name="password2"
-            class="confPwd"
-            placeholder="Confirma tu contraseña"
-            v-model="password2"
-            required
-          />
+           <div class="input">
+            <input
+              type="text"
+              name="name"
+              placeholder="Nombre"
+              v-model="name"
+              required
+            />
+           </div>
+           <div class="input">
+            <input
+              type="tel"
+              name="telephone"
+              placeholder="Telefono"
+              pattern="[0-9]{9}"
+              v-model="telephone"
+              required
+            />
+           </div>
+          <div class="input">
+            <input
+              type="mail"
+              name="email"
+              placeholder="E-mail"
+              v-model="email"
+              required
+            />
+          </div>
+          <div class="input">
+            <input
+              :type="passType1"
+              name="password1"
+              placeholder="Contraseña"
+              v-model="password1"
+              required
+            />
+            <div class="show-hide" @click="passType1 === 'password' ? passType1 ='text' : passType1 ='password'"> {{passType1 === 'password' ? 'mostrar' : 'ocultar'}} </div>
+          </div>
+          <div class="input">
+            <input
+              :type="passType2"
+              name="password2"
+              class="confPwd"
+              placeholder="Confirma tu contraseña"
+              v-model="password2"
+              required
+            />
+            <div  class="show-hide" @click="passType2 === 'password' ? passType2 ='text' : passType2 ='password'"> {{passType2 === 'password' ? 'mostrar' : 'ocultar'}} </div>
+          </div>
+          <p class="avisoPwd" v-if="password2 !== password1">Las contraseñas no coinciden</p>
           <button class="button3">Registrarse</button>
         </form>
       </div>
@@ -83,6 +96,8 @@ export default {
       password1:'',
       password2:'',
       user: {},
+      passType1: 'password',
+      passType2: 'password'
     }
   },
   methods : {
@@ -95,18 +110,8 @@ export default {
         if(success){
         this.$router.push("/")
         }
-      }else{
-        this.$store.dispatch('errorPwd')
       }
          
-    },
-    avisoPwd(pass1, pass2){
-      if(pass1 !== pass2){
-        return false;
-      }else{
-        return true;
-      }
-      
     }
   },
 
@@ -125,6 +130,14 @@ html {
 
 div#app {
     height: 100%;
+}
+.show-hide{
+  cursor: pointer;
+  position: absolute;
+  top: 28px;
+  margin-top: -10px;
+  right: 20px;
+  height: 20px;
 }
 
 .registerForm {
@@ -215,8 +228,8 @@ button.buttonRegister4 {
     margin: 0%;
 }
   
-.register_form1 input {
-    margin-top: 7%;
+.register_form1 .input input{
+   
     border-radius: 10px;
     font-size: inherit;
     font-style: normal;
@@ -224,11 +237,15 @@ button.buttonRegister4 {
     cursor: auto;
     background-color: white;
     border-color: black;
-    height: 60%;
+    height: 50px;
     align-self: end;
     padding-left: 20px;
+    width: 97%;
 }
-  
+.register_form1 .input{
+   margin-top: 20px;
+  position: relative;
+}
 button.button3 {
     margin-top: 50px;
     border-radius: 10px;
