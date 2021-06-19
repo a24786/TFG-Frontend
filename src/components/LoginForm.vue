@@ -14,11 +14,14 @@
       <div class="logForm">
         <h2>¡Hola de nuevo!</h2>
         <div class="login_form">
-          <input type="mail" name="email" placeholder="E-mail" v-model="email">
-          <input type="password" name="password" placeholder="Contraseña" v-model="password">
-          <button class="button3" @click="submit()">Iniciar Sesión</button>
+           <div class="log-in-error" v-if="error">El email o la contrseña no son correctos</div>
+          <input v-bind:class="{ 'hasError':  error }" type="mail" name="email" placeholder="E-mail" v-model="email">
+          <input v-bind:class="{ 'hasError':  error }" type="password" name="password" placeholder="Contraseña" v-model="password">
+          <button v-if="loading" disabled class="button3">Iniciar Sesión</button>
+          <button v-else class="button3" @click="submit()">Iniciar Sesión</button>
         </div>
       </div>
+     
       <!-- <div class="privacy_register">
         <p>¿Aún no tienes cuenta propia? <router-link to="/register"><a class="create_account">Crea una cuenta</a></router-link></p>
       </div> -->
@@ -37,13 +40,19 @@ export default {
       email:'',
       password:'',
       user: {},
+      error: false,
+      loading: false
     }
   },
   methods : {
     submit(){
       this.user = {email: this.email, password: this.password} 
-      this.$store.dispatch('loginUser', this.user)
-      }
+      this.loading = true
+      this.$store.dispatch('loginUser', this.user).then( res => {
+        !res ? this.error = true : this.error = false
+        this.loading = false
+      })
+    }
   }
 }
 </script>
@@ -53,6 +62,12 @@ html {
     width: 100%;
 }
 
+.log-in-error{
+  background-color:  #dc143c;
+  color: white;
+  border-radius: 5px;
+  padding: 15px 5px;
+}
 .login {
     height: 100%;
 }
@@ -177,6 +192,9 @@ div#app {
     font-family: Roboto;
     transition-duration: 0.5s;
   }
+  button.button3:disabled{
+    background-color: grey;
+  }
   
   .privacy_register {
     text-align: center;
@@ -221,4 +239,8 @@ div#app {
       border:solid rgb(254 167 1) 1px;
       transition-duration: 0.5s;
   }
+  .hasError {
+  border-color: #dc143c !important;
+  border: solid;
+}
 </style>
