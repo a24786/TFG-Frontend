@@ -24,7 +24,7 @@ export default {
     BackButton
   },
   created() {
-    this.$store.dispatch('fetchBars')
+    this.$store.dispatch('fetchBars', 10)
   },
 }
 </script>
