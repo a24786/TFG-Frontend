@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div class="headerBarDet" >
+     <div v-if="loading">
+        Cargando...
+    </div>
+    <div v-else class="headerBarDet" >
+     
       <div class="banner_barDet">
         <img :src="'https://gotherestorage.blob.core.windows.net'+bar.barImages[0].imgUrl">
       </div>
@@ -32,6 +36,7 @@ export default {
   },    
   data() {
     return { 
+      loading: true,
       telefono: telefono,
       name: "",
       lastName: "",
@@ -46,6 +51,7 @@ export default {
   created(){
     this.$store.dispatch("loadBarData", this.$route.params.id ).then((data) =>{
       this.bar =  data
+      this.loading = false
     })
   },
   methods: {
