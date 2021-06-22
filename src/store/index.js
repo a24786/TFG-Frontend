@@ -25,7 +25,7 @@ export default new Vuex.Store({
         // Fetch para detectar existe el usuario y loggearte
         loginUser(context, user) {
             context.state.user = this.user
-            fetch(BASE_URL + `api/users/sign-in`, {
+            return fetch(BASE_URL + `api/users/sign-in`, {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
@@ -46,9 +46,8 @@ export default new Vuex.Store({
                         return false
                     }
                 })
-                .catch(error => {
+                .catch(() => {
                     console.log('Error en el inicio de sesión')
-                    console.log(error)
                 })
         },
         //Fetch para crear un nuevo usuario
@@ -71,11 +70,7 @@ export default new Vuex.Store({
                     return true;
                 })
         },
-        //Funcion para mostrar mensaje si las contraseñas no coinciden
-        errorPwd() {
-            var aviso = `<p class="avisoPwd">Las contraseñas no coinciden</p>`
-            document.querySelector(".confPwd").insertAdjacentHTML("afterend", aviso);
-        },
+        
         //Fetch para sacar las reservas de un usuario / falta filtrar por ACTIVAS O NO
         getReservations(state) {
             // fetch(BASE_URL + 'api/reservations/' + this.$store.state.userToken)

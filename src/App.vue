@@ -12,7 +12,7 @@ export default {
   beforeUpdate() {
    this.$store.dispatch('getPosition')
    this.$store.dispatch('fetchUserToken').then((e) => {
-     if(e==null && this.$route.path !== '/login'){
+     if(e==null && (this.$route.path !== '/login' && this.$route.path !== '/register')){
        this.$router.push('login')
      }
    })
