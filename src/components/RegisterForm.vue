@@ -27,7 +27,7 @@
             <input
               type="tel"
               name="telephone"
-              placeholder="Telefono"
+              placeholder="Teléfono"
               pattern="[0-9]{9}"
               v-model="telephone"
               required
@@ -40,6 +40,7 @@
               placeholder="E-mail"
               v-model="email"
               required
+              @change="checkEmail"
             />
           </div>
           <div class="input">
@@ -63,7 +64,8 @@
             />
             <div  class="show-hide" @click="passType2 === 'password' ? passType2 ='text' : passType2 ='password'"> {{passType2 === 'password' ? 'mostrar' : 'ocultar'}} </div>
           </div>
-          <p class="avisoPwd" v-if="password2 !== password1">Las contraseñas no coinciden</p>
+          <p class="avisoPwd" style="margin-top: 0px;" v-if="password2 !== password1">Las contraseñas no coinciden</p>
+          <p class="avisoPwd" v-if="emailError">Email no válido</p>
           <button class="button3">Registrarse</button>
         </form>
       </div>
@@ -97,21 +99,26 @@ export default {
       password2:'',
       user: {},
       passType1: 'password',
-      passType2: 'password'
+      passType2: 'password',
+      emailError: false
     }
   },
   methods : {
     submit(){
-
-      if(this.avisoPwd(this.password1, this.password2)){
+      this.checkEmail()
+      if(this.password1 === this.password2 && !this.emailError){
         this.user = {name: this.name, lastName: this.lastName, phoneNumber: this.telephone, email: this.email, password: this.password1} 
         let success = this.$store.dispatch('registerUser', this.user)
-
+          
         if(success){
         this.$router.push("/")
         }
       }
          
+    },
+    checkEmail(){
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        this.emailError = !re.test(String(this.email).toLowerCase());
     }
   },
 
